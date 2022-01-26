@@ -6,6 +6,9 @@ public class GameManager : Singleton<GameManager>
 {
     public ObjectPool Pool { get; set; }
 
+    public float speed = 0.5f;
+
+
     private void Awake()
     {
         Pool = GetComponent<ObjectPool>();
@@ -13,17 +16,20 @@ public class GameManager : Singleton<GameManager>
 
     public void StartWave()
     {
-        StartCoroutine("SpawnWave",2.5f);
+        //print("runnings12");
+        StartCoroutine(SpawnWave());
     }
 
-    private IEnumerable SpawnWave()
+    private IEnumerator SpawnWave()
     {
-        string type = "MovingMonster";
+        //print("runnings");
+        string type = "Monster";
 
-        Pool.GetObject(type);
+        Vector3 movement = new Vector3(1, 0, 0);
+        Pool.GetObject(type).transform.Translate(movement * speed * Time.deltaTime);
 
-        //yield return new WaitForSeconds(2.5f);
-        yield return null;
+        yield return new WaitForSeconds(2.5f);
+        //yield return null;
     }
 
 }

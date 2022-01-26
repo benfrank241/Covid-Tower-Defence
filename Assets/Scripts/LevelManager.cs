@@ -13,6 +13,14 @@ public class LevelManager : Singleton<LevelManager>
 
     public Dictionary<Point,TileScript> Tiles { get; set; }
 
+    private Point startPath;
+    //private Point endPath;
+
+    [SerializeField]
+
+    private GameObject monsterPrefab;
+
+
     public float TileSize
     {
         get {return tilePrefabs[0].GetComponent<SpriteRenderer>().sprite.bounds.size.x; }
@@ -21,13 +29,13 @@ public class LevelManager : Singleton<LevelManager>
     // Start is called before the first frame update
     void Start()
     {
-        CreateLevel();
+        CreateLevel();        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void CreateLevel()
@@ -51,6 +59,8 @@ public class LevelManager : Singleton<LevelManager>
             }
 
         }
+
+        SpawnMonster();
     }
 
     private void PlaceTile(string tileType, int x, int y, Vector3 mapStart)
@@ -72,5 +82,32 @@ public class LevelManager : Singleton<LevelManager>
         return data.Split('-');
     }
 
+    private void SpawnMonster()
+    {
+        startPath = new Point(1,1);
+        
+        //GameObject monster = Instantiate(monsterPrefab, Tiles[startPath].GetComponent<TileScript>().WorldPosition, Quaternion.identity);
+        /*
+        Instantiate(monsterPrefab, Tiles[new Point(2,1)].GetComponent<TileScript>().WorldPosition, Quaternion.identity);
+        Instantiate(monsterPrefab, Tiles[new Point(2,2)].GetComponent<TileScript>().WorldPosition, Quaternion.identity);
+        Instantiate(monsterPrefab, Tiles[new Point(3,2)].GetComponent<TileScript>().WorldPosition, Quaternion.identity);
+        Instantiate(monsterPrefab, Tiles[new Point(3,3)].GetComponent<TileScript>().WorldPosition, Quaternion.identity);
+        Instantiate(monsterPrefab, Tiles[new Point(4,3)].GetComponent<TileScript>().WorldPosition, Quaternion.identity);
+        Instantiate(monsterPrefab, Tiles[new Point(4,4)].GetComponent<TileScript>().WorldPosition, Quaternion.identity);
+        Instantiate(monsterPrefab, Tiles[new Point(5,4)].GetComponent<TileScript>().WorldPosition, Quaternion.identity);
+        Instantiate(monsterPrefab, Tiles[new Point(5,5)].GetComponent<TileScript>().WorldPosition, Quaternion.identity);
+        Instantiate(monsterPrefab, Tiles[new Point(6,5)].GetComponent<TileScript>().WorldPosition, Quaternion.identity);
+        Instantiate(monsterPrefab, Tiles[new Point(7,5)].GetComponent<TileScript>().WorldPosition, Quaternion.identity);
+        Instantiate(monsterPrefab, Tiles[new Point(8,5)].GetComponent<TileScript>().WorldPosition, Quaternion.identity);
+        Instantiate(monsterPrefab, Tiles[new Point(8,6)].GetComponent<TileScript>().WorldPosition, Quaternion.identity);
+        Instantiate(monsterPrefab, Tiles[new Point(9,6)].GetComponent<TileScript>().WorldPosition, Quaternion.identity);
+        Instantiate(monsterPrefab, Tiles[new Point(10,6)].GetComponent<TileScript>().WorldPosition, Quaternion.identity);
+        Instantiate(monsterPrefab, Tiles[new Point(11,6)].GetComponent<TileScript>().WorldPosition, Quaternion.identity);
+        */
 
+        //monster.transform.localScale += TileSize;
+
+        
+
+    }
 }
