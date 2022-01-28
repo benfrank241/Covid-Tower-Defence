@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class GameManager : Singleton<GameManager>
 {
     public ObjectPool Pool { get; set; }
+    public TowerBtn ClickedBtn { get;set; }
+
 
     public float speed = 0.5f;
 
@@ -14,6 +16,10 @@ public class GameManager : Singleton<GameManager>
 
     [SerializeField]
     private Text currencyTxt;
+
+    
+    // The current selected tower
+    private Tower selectedTower;
 
     public int Currency
     {
@@ -54,6 +60,11 @@ public class GameManager : Singleton<GameManager>
         Hp = 10;
     }
 
+     void Update()
+    {
+        HandleEscape();
+    }
+
     private void Awake()
     {
         Pool = GetComponent<ObjectPool>();
@@ -76,5 +87,39 @@ public class GameManager : Singleton<GameManager>
         yield return new WaitForSeconds(2.5f);
         //yield return null;
     }
+    public void PickTower(TowerBtn towerBtn)
+    {
+        this.ClickedBtn = towerBtn;
+        Hover.Instance.Activate(towerBtn.Sprite);
+    }
 
+    public void BuyTower()
+    {
+        Hover.Instance.Deactivate();
+        
+    }
+    private void HandleEscape()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Hover.Instance.Deactivate();
+        }
+    }
+    public void SelectTower(Tower tower)
+    {
+        if(selectedTower !=null)
+        {
+            selectedTower.Select();
+        }
+        selectedTower = tower;
+        selectedTower.Select();
+    }
+    public void DeselectTower()
+    {
+        if(selectedTower !=null)
+        {
+            selectedTower.Select();
+        }
+        selectedTower = null;
+    }
 }
