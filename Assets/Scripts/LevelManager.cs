@@ -42,7 +42,8 @@ public class LevelManager : Singleton<LevelManager>
     {
         Tiles = new Dictionary<Point, TileScript>();
 
-        string[] mapData = ReadMapText();
+        //string[] mapData = ReadMapText();
+        string[] mapData = new string [] {"0000000000000","0210000000000","0011000000000","0001100000000","0000110000000","0000011110000","0000000011120","0000000000000"};
 
         int mapXSize = mapData[0].ToCharArray().Length;
         int mapYSize = mapData.Length;
