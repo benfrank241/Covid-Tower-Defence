@@ -6,7 +6,8 @@ public class Tower : MonoBehaviour
 {
 
     private SpriteRenderer mySpriterRenderer;
-     
+    private Monster target; 
+    private Queue<Monster> monsters = new Queue<Monster>();
     
     // Start is called before the first frame update
     void Start()
@@ -17,11 +18,36 @@ public class Tower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Attack();
+        Debug.Log(target);
     }
 
     public void Select()
     {
         mySpriterRenderer.enabled = !mySpriterRenderer.enabled;
+    }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag == "Monster")
+        {
+            monsters.Enqueue(other.GetComponent<Monster>());
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.tag == "Monster")
+        {
+            target = null;
+        }
+    }
+
+    private void Attack()
+    {
+        if(target == null && monsters.Count>0)
+        {
+            target = monsters.Dequeue();
+        }
     }
 }
