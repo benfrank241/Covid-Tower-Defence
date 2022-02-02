@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-//New Code
+using UnityEngine.SceneManagement;
+
 public class GameManager : Singleton<GameManager>
 {
     public ObjectPool Pool { get; set; }
@@ -13,6 +14,7 @@ public class GameManager : Singleton<GameManager>
 
     private int currency;
     private int hp;
+    private bool gameOver = false;
 
     [SerializeField]
     private Text currencyTxt;
@@ -49,7 +51,15 @@ public class GameManager : Singleton<GameManager>
         set
         {
             this.hp = value;
+
+            if (hp <= 0)
+            {
+                this.hp = 0;
+                GameOver();
+            }
+
             this.HPTxt.text = value.ToString();
+            
         }
     }
 
@@ -122,4 +132,14 @@ public class GameManager : Singleton<GameManager>
         }
         selectedTower = null;
     }
+
+    public void GameOver()
+    {
+        if (!gameOver)
+        {
+            gameOver = true;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+    }
+
 }
