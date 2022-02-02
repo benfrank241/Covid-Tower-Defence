@@ -47,6 +47,7 @@ public class Monster : MonoBehaviour
             Vector3 endPath = LevelManager.Instance.Tiles[new Point(11,6)].GetComponent<TileScript>().WorldPosition;
             if(destination == endPath)
             {
+                GameManager.Instance.Hp--;
                 Destroy(gameObject);
             }
 
