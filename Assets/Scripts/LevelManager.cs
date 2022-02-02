@@ -14,11 +14,26 @@ public class LevelManager : Singleton<LevelManager>
     public Dictionary<Point,TileScript> Tiles { get; set; }
 
     private Point startPath;
-    //private Point endPath;
+    private Point endPath;
 
     [SerializeField]
 
     private GameObject monsterPrefab;
+
+    private Stack<Node> path;
+
+    public Stack<Node> Path
+    {
+        get
+        {
+            if (path == null)
+            {
+                GeneratePath();
+            }
+
+            return new Stack<Node>(new Stack<Node>(path));
+        }
+    }
 
 
     public float TileSize
@@ -43,7 +58,7 @@ public class LevelManager : Singleton<LevelManager>
         Tiles = new Dictionary<Point, TileScript>();
 
         //string[] mapData = ReadMapText();
-        string[] mapData = new string [] {"0000000000000","0210000000000","0011000000000","0001100000000","0000110000000","0000011110000","0000000011120","0000000000000"};
+        string[] mapData = new string [] {"00000000000000","02100000000000","00110000000000","00011000000000","00001100000000","00000111100000","00000000111200","00000000000000"};
 
         int mapXSize = mapData[0].ToCharArray().Length;
         int mapYSize = mapData.Length;
@@ -86,6 +101,7 @@ public class LevelManager : Singleton<LevelManager>
     private void SpawnMonster()
     {
         startPath = new Point(1,1);
+        endPath = new Point(11,6);
         
         //GameObject monster = Instantiate(monsterPrefab, Tiles[startPath].GetComponent<TileScript>().WorldPosition, Quaternion.identity);
         /*
@@ -107,8 +123,10 @@ public class LevelManager : Singleton<LevelManager>
         */
 
         //monster.transform.localScale += TileSize;
+    }
 
-        
-
+    public void GeneratePath()
+    {
+        path = PathAlgorithm.GetPath();
     }
 }

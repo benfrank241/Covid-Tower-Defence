@@ -88,15 +88,19 @@ public class GameManager : Singleton<GameManager>
 
     private IEnumerator SpawnWave()
     {
+        LevelManager.Instance.GeneratePath();
+
         print("runnings");
         string type = "Monster";
 
-        Vector3 movement = new Vector3(1, 0, 0);
-        Pool.GetObject(type).transform.Translate(movement * speed * Time.deltaTime);
+        //Vector3 movement = new Vector3(1, 0, 0);
+        Monster monster = Pool.GetObject(type).GetComponent<Monster>();//.transform.Translate(movement * speed * Time.deltaTime);
+        monster.Spawn();
 
         yield return new WaitForSeconds(2.5f);
         //yield return null;
     }
+
     public void PickTower(TowerBtn towerBtn)
     {
         this.ClickedBtn = towerBtn;
