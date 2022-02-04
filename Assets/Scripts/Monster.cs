@@ -49,6 +49,7 @@ public class Monster : MonoBehaviour
             {
                 GameManager.Instance.Hp--;
                 Destroy(gameObject);
+                GameManager.Instance.RemoveMonster(this);
             }
 
             if(path != null && path.Count > 0)

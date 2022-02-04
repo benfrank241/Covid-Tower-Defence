@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void PlayGame ()
+    public void PlayGame () //fromMenu
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
@@ -16,14 +16,19 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    public void toMenu()
+    public void toMenu() //fromLost
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
     }
 
-    public void toLost()
+    public void toLost() //fromMain
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void toMenu2() //fromWin
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 3);
     }
 
 
