@@ -19,6 +19,21 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     private Text currencyTxt;
 
+    private int wave = 0;
+
+    [SerializeField]
+    private GameObject waveBtn;
+
+    private List<Monster> activeMonsters = new List<Monster>();
+
+    public bool WaveActive
+    {
+        get
+        {
+            return activeMonsters.Count > 0;
+        }
+    }
+
     
     // The current selected tower
     private Tower selectedTower;
@@ -82,29 +97,46 @@ public class GameManager : Singleton<GameManager>
 
     public void StartWave()
     {
+        wave++;
         //print("runnings12");
         StartCoroutine(SpawnWave());
+
+        waveBtn.SetActive(false);
     }
 
     private IEnumerator SpawnWave()
     {
         LevelManager.Instance.GeneratePath();
 
-        print("runnings");
-        string type = "Monster";
+        for(int i = 0; i < wave; i++){
 
-        //Vector3 movement = new Vector3(1, 0, 0);
-        Monster monster = Pool.GetObject(type).GetComponent<Monster>();//.transform.Translate(movement * speed * Time.deltaTime);
-        monster.Spawn();
+            string type = "Monster";
 
-        yield return new WaitForSeconds(2.5f);
-        //yield return null;
+            Monster monster = Pool.GetObject(type).GetComponent<Monster>();
+            monster.Spawn();
+
+            activeMonsters.Add(monster);
+
+            yield return new WaitForSeconds(2.5f);
+        }
+    }
+
+    public void RemoveMonster(Monster monster)
+    {
+        activeMonsters.Remove(monster);
+
+        if(!WaveActive)
+        {
+            waveBtn.SetActive(true);
+        }
     }
 
     public void PickTower(TowerBtn towerBtn)
     {
-        this.ClickedBtn = towerBtn;
-        Hover.Instance.Activate(towerBtn.Sprite);
+        if(!WaveActive){
+            this.ClickedBtn = towerBtn;
+            Hover.Instance.Activate(towerBtn.Sprite);
+        }
     }
 
     public void BuyTower()

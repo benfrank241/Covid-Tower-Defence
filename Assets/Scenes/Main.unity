@@ -748,6 +748,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &567118096 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3789378213936496480, guid: 3456ce3b65d77bc4db2a1407069d636c, type: 3}
+  m_PrefabInstance: {fileID: 115682882}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &591494834
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -895,6 +900,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.5
   currencyTxt: {fileID: 174297778}
+  waveBtn: {fileID: 567118096}
   HPTxt: {fileID: 249849821}
 --- !u!1 &846430819
 GameObject:
