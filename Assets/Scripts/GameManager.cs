@@ -16,10 +16,6 @@ public class GameManager : Singleton<GameManager>
     private int hp;
     private bool gameOver = false;
     private int wave = 0;
-    public bool WaveActive
-    {
-        get { return activeMonsters.Count > 0; }
-    }
 
     [SerializeField]
     private Text waveTxt;
@@ -27,17 +23,13 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     private Text currencyTxt;
 
-<<<<<<< HEAD
-    private int wave = 0;
 
-=======
->>>>>>> feature_wave_cntr
     [SerializeField]
     private GameObject waveBtn;
 
     private List<Monster> activeMonsters = new List<Monster>();
 
-<<<<<<< HEAD
+
     public bool WaveActive
     {
         get
@@ -46,8 +38,6 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-=======
->>>>>>> feature_wave_cntr
     
     // The current selected tower
     private Tower selectedTower;
@@ -112,11 +102,10 @@ public class GameManager : Singleton<GameManager>
     public void StartWave()
     {
         wave++;
-<<<<<<< HEAD
-=======
+
 
         waveTxt.text = string.Format("Wave: {0}/20", wave);
->>>>>>> feature_wave_cntr
+
         //print("runnings12");
         StartCoroutine(SpawnWave());
 
@@ -126,7 +115,7 @@ public class GameManager : Singleton<GameManager>
     private IEnumerator SpawnWave()
     {
         LevelManager.Instance.GeneratePath();
-<<<<<<< HEAD
+
 
         for(int i = 0; i < wave; i++){
 
@@ -139,29 +128,16 @@ public class GameManager : Singleton<GameManager>
 
             yield return new WaitForSeconds(2.5f);
         }
-=======
-       
-        print("runnings");
-        string type = "Monster";
-
-        //Vector3 movement = new Vector3(1, 0, 0);
-        Monster monster = Pool.GetObject(type).GetComponent<Monster>();//.transform.Translate(movement * speed * Time.deltaTime);
-        monster.Spawn();
-        activeMonsters.Add(monster);
-        yield return new WaitForSeconds(2.5f);
             //yield return null;
->>>>>>> feature_wave_cntr
+
     }
 
     public void RemoveMonster(Monster monster)
     {
         activeMonsters.Remove(monster);
 
-<<<<<<< HEAD
-        if(!WaveActive)
-=======
+
         if (!WaveActive)
->>>>>>> feature_wave_cntr
         {
             waveBtn.SetActive(true);
         }
