@@ -38,8 +38,13 @@ public class Monster : MonoBehaviour
             if(destination == endPath)
             {
                 GameManager.Instance.Hp--;
+<<<<<<< HEAD
                 //Destroy(gameObject);
                 Release();
+=======
+                Destroy(gameObject);
+                GameManager.Instance.RemoveMonster(this);
+>>>>>>> feature_wave_cntr
             }
 
             if(path != null && path.Count > 0)
