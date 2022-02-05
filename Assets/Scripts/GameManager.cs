@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
+    
+    
     public ObjectPool Pool { get; set; }
     public TowerBtn ClickedBtn { get;set; }
 
