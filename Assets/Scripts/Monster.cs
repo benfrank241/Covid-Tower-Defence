@@ -20,6 +20,7 @@ public class Monster : MonoBehaviour
     }
 
 
+    public bool IsActive {get ; set; }
 
     public void Spawn()
     {
