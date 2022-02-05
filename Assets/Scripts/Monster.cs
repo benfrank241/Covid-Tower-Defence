@@ -70,6 +70,8 @@ public class Monster : MonoBehaviour
         }
     }
 
+
+    public bool IsActive{ get; set; }
     //*****
     /*
     // Start is called before the first frame update
