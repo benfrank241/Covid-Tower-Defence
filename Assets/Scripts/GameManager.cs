@@ -265,7 +265,7 @@ public class GameManager : Singleton<GameManager>
 
     public void PickTower(TowerBtn towerBtn)
     {
-        if(!WaveActive){
+        if(!WaveActive && Currency >= towerBtn.Price){
             this.ClickedBtn = towerBtn;
             Hover.Instance.Activate(towerBtn.Sprite);
         }
@@ -273,8 +273,11 @@ public class GameManager : Singleton<GameManager>
 
     public void BuyTower()
     {
-        Hover.Instance.Deactivate();
-        
+        if(Currency >= ClickedBtn.Price)
+        {
+            Currency -= ClickedBtn.Price;
+            Hover.Instance.Deactivate();
+        }
     }
     private void HandleEscape()
     {
