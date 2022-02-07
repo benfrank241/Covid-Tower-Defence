@@ -5,6 +5,7 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
     
+    public int Price { get; set; }
     
     // this is the projectiles type
     [SerializeField]
