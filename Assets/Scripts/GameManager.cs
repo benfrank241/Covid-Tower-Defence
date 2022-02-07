@@ -117,22 +117,140 @@ public class GameManager : Singleton<GameManager>
     private IEnumerator SpawnWave()
     {
         LevelManager.Instance.GeneratePath();
-
-
-        for(int i = 0; i < wave; i++){
-
-            string type = "Monster";
-
-            Monster monster = Pool.GetObject(type).GetComponent<Monster>();
+ 
+        string type;
+        Monster monster;
+ 
+ 
+        //Wave 1: Introductory Wave
+        //**********
+        if(wave==1)
+        {
+            //***
+            type = "Monster1";
+ 
+            monster = Pool.GetObject(type).GetComponent<Monster>();
             monster.Spawn();
-
             activeMonsters.Add(monster);
-
-            yield return new WaitForSeconds(2.5f);
+ 
+            yield return new WaitForSeconds(7f);
+            //***
+ 
+            //***
+            for(int i = 0; i < 2; i++)
+            {
+                type = "Monster2";
+ 
+                monster = Pool.GetObject(type).GetComponent<Monster>();
+                monster.Spawn();
+                activeMonsters.Add(monster);
+ 
+                yield return new WaitForSeconds(1f);
+            }
+            yield return new WaitForSeconds(6f);
+            //***
+ 
+            //***
+            for(int i = 0; i < 3; i++)
+            {
+                type = "Monster3";
+ 
+                monster = Pool.GetObject(type).GetComponent<Monster>();
+                monster.Spawn();
+                activeMonsters.Add(monster);
+ 
+                yield return new WaitForSeconds(1f);
+            }
+            yield return new WaitForSeconds(6f);
+            //***
+ 
+            //***
+            for(int i = 0; i < 4; i++)
+            {
+                type = "Monster4";
+ 
+                monster = Pool.GetObject(type).GetComponent<Monster>();
+                monster.Spawn();
+                activeMonsters.Add(monster);
+ 
+                yield return new WaitForSeconds(1f);
+            }
+            yield return new WaitForSeconds(6f);
+            //***
         }
-            //yield return null;
-
+        //**********
+ 
+ 
+        //Wave 2:
+        //**********
+        if(wave==2)
+        {
+            for(int i = 0; i < wave; i++)
+            {
+                type = "Monster2";
+ 
+                monster = Pool.GetObject(type).GetComponent<Monster>();
+                monster.Spawn();
+                activeMonsters.Add(monster);
+ 
+                yield return new WaitForSeconds(2.5f);
+            }
+        }
+        //**********
+ 
+        //Wave 3:
+        //**********
+        if(wave==3)
+        {
+            for(int i = 0; i < wave; i++)
+            {
+                type = "Monster3";
+ 
+                monster = Pool.GetObject(type).GetComponent<Monster>();
+                monster.Spawn();
+                activeMonsters.Add(monster);
+ 
+                yield return new WaitForSeconds(2.5f);
+            }
+        }
+        //**********
+ 
+        //Wave 4:
+        //**********
+        if(wave==4)
+        {
+            for(int i = 0; i < wave; i++)
+            {
+                type = "Monster4";
+ 
+                monster = Pool.GetObject(type).GetComponent<Monster>();
+                monster.Spawn();
+                activeMonsters.Add(monster);
+ 
+                yield return new WaitForSeconds(2.5f);
+            }
+        }
+        //**********
+ 
+        //Wave 5:
+        //**********
+        if(wave==5)
+        {
+            for(int i = 0; i < wave; i++)
+            {
+                type = "Monster4";
+ 
+                monster = Pool.GetObject(type).GetComponent<Monster>();
+                monster.Spawn();
+                activeMonsters.Add(monster);
+ 
+                yield return new WaitForSeconds(2.5f);
+            }
+        }
+        //**********
+ 
     }
+
 
     public void RemoveMonster(Monster monster)
     {

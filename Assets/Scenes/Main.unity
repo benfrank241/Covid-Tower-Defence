@@ -1090,7 +1090,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterPrefab:
+  - {fileID: 7058925963524172463, guid: f02a78f590cd4434b9d5da3ee45788a8, type: 3}
   - {fileID: 8234343905382267639, guid: f27b14952e3695b42a59fa8d34d4b8a7, type: 3}
+  - {fileID: 8686531220447246003, guid: bd3fc87edee3be14282a57a45aa35f6e, type: 3}
+  - {fileID: 6825124653698131649, guid: a14728d1d70d8b041867527818aeeecf, type: 3}
 --- !u!114 &806819309
 MonoBehaviour:
   m_ObjectHideFlags: 0
