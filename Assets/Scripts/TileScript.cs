@@ -98,7 +98,8 @@ public class TileScript : MonoBehaviour
 
         myTower.Price = GameManager.Instance.ClickedBtn.Price;
         
-         GameManager.Instance.BuyTower();
+        GameManager.Instance.BuyTower();
+        SoundManager.Instance.PlaySFX("construction");
     }
     private void ColorTile(Color newColor)
     {

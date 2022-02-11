@@ -27,6 +27,7 @@ public class Monster : MonoBehaviour
         transform.position = LevelManager.Instance.Tiles[new Point(1,1)].GetComponent<TileScript>().WorldPosition;
 
         SetPath(LevelManager.Instance.Path);
+        SoundManager.Instance.PlaySFX("monsterspawn");
     }
 
     private void Move()
