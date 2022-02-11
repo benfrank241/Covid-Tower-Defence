@@ -274,6 +274,7 @@ public class GameManager : Singleton<GameManager>
     public void BuyTower()
     {
         Hover.Instance.Deactivate();
+      
         
     }
     private void HandleEscape()
