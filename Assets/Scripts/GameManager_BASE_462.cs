@@ -29,12 +29,6 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     private GameObject waveBtn;
 
-    [SerializeField]
-    private GameObject upgradePanel;
-
-    [SerializeField]
-    private Text sellText;
-
     private List<Monster> activeMonsters = new List<Monster>();
 
 
@@ -271,7 +265,7 @@ public class GameManager : Singleton<GameManager>
 
     public void PickTower(TowerBtn towerBtn)
     {
-        if(!WaveActive && Currency >= towerBtn.Price){
+        if(!WaveActive){
             this.ClickedBtn = towerBtn;
             Hover.Instance.Activate(towerBtn.Sprite);
         }
@@ -279,17 +273,8 @@ public class GameManager : Singleton<GameManager>
 
     public void BuyTower()
     {
-<<<<<<< HEAD
-        if(Currency >= ClickedBtn.Price)
-        {
-            Currency -= ClickedBtn.Price;
-            Hover.Instance.Deactivate();
-        }
-=======
         Hover.Instance.Deactivate();
-      
         
->>>>>>> develop
     }
     private void HandleEscape()
     {
@@ -306,9 +291,6 @@ public class GameManager : Singleton<GameManager>
         }
         selectedTower = tower;
         selectedTower.Select();
-
-        sellText.text = "+" + (selectedTower.Price / 2).ToString();
-        upgradePanel.SetActive(true);
     }
     public void DeselectTower()
     {
@@ -316,22 +298,7 @@ public class GameManager : Singleton<GameManager>
         {
             selectedTower.Select();
         }
-        upgradePanel.SetActive(false);
         selectedTower = null;
-    }
-
-    public void SellTower ()
-    {
-        if (selectedTower != null)
-        {
-            Currency += selectedTower.Price / 2;
-
-            selectedTower.GetComponentInParent<TileScript>().IsEmpty = true;
-
-            Destroy(selectedTower.transform.parent.gameObject);
-
-            DeselectTower();
-        }
     }
 
     public void GameOver()

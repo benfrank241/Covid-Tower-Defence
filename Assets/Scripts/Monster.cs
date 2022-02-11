@@ -26,33 +26,35 @@ public class Monster : MonoBehaviour
     {
         transform.position = LevelManager.Instance.Tiles[new Point(1,1)].GetComponent<TileScript>().WorldPosition;
 
+        IsActive = true;
+
         SetPath(LevelManager.Instance.Path);
         SoundManager.Instance.PlaySFX("monsterspawn");
     }
 
     private void Move()
     {
-        transform.position = Vector3.MoveTowards(transform.position, destination, speed * Time.deltaTime);
+        if(IsActive == true){
+            transform.position = Vector3.MoveTowards(transform.position, destination, speed * Time.deltaTime);
 
-        if(transform.position == destination)
-        {
-            Vector3 endPath = LevelManager.Instance.Tiles[new Point(11,6)].GetComponent<TileScript>().WorldPosition;
-            if(destination == endPath)
+            if(transform.position == destination)
             {
-                GameManager.Instance.Hp--;
+                Vector3 endPath = LevelManager.Instance.Tiles[new Point(11,6)].GetComponent<TileScript>().WorldPosition;
+                if(destination == endPath)
+                {
+                    GameManager.Instance.Hp--;
 
-                //Destroy(gameObject);
-                Release();
+                    Release();
 
-                //Destroy(gameObject);
-                GameManager.Instance.RemoveMonster(this);
+                    GameManager.Instance.RemoveMonster(this);
 
-            }
+                }
 
-            if(path != null && path.Count > 0)
-            {
-                GridPosition = path.Peek().GridPosition;
-                destination = path.Pop().WorldPosition;
+                if(path != null && path.Count > 0)
+                {
+                    GridPosition = path.Peek().GridPosition;
+                    destination = path.Pop().WorldPosition;
+                }
             }
         }
     }

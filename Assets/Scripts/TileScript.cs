@@ -8,7 +8,7 @@ public class TileScript : MonoBehaviour
 
     public bool IsEmpty { get; set; }
 
-    private Color32 fullColor = new Color32(255,118,118,225);
+    private Color32 fullColor = new Color32(255,118,118,255);
 
     private Color32 emptyColor = new Color32(96,255,90,255);
 
@@ -46,9 +46,10 @@ public class TileScript : MonoBehaviour
         
         LevelManager.Instance.Tiles.Add(GridPos,this);
     }
-     private void OnMouseOver()
+     
+    private void OnMouseOver()
     {
-        ColorTile(fullColor);
+       // ColorTile(fullColor);
 
         if (!EventSystem.current.IsPointerOverGameObject() && GameManager.Instance.ClickedBtn != null)
         {
@@ -68,7 +69,7 @@ public class TileScript : MonoBehaviour
         }
         else if (!EventSystem.current.IsPointerOverGameObject() && GameManager.Instance.ClickedBtn == null && Input.GetMouseButtonDown(0))
         {
-            if(myTower !=null)
+            if(myTower != null)
             {
                 GameManager.Instance.SelectTower(myTower);
             }
@@ -87,7 +88,7 @@ public class TileScript : MonoBehaviour
     private void PlaceTower()
     {
         
-        GameObject tower =(GameObject)Instantiate(GameManager.Instance.ClickedBtn.TowerPrefab,transform.position, Quaternion.identity);
+        GameObject tower = (GameObject)Instantiate(GameManager.Instance.ClickedBtn.TowerPrefab,transform.position, Quaternion.identity);
         tower.GetComponent<SpriteRenderer>().sortingOrder = GridPosition.Y;
         tower.transform.SetParent(transform);
         this.myTower = tower.transform.GetChild(0).GetComponent<Tower>();

@@ -18,15 +18,14 @@ public class Tower : MonoBehaviour
     [SerializeField]
     private float attackCooldown;
     
-    private SpriteRenderer mySpriterRenderer;
+    private SpriteRenderer mySpriteRenderer;
     private Monster target; 
     private Queue<Monster> monsters = new Queue<Monster>();
     
     // Start is called before the first frame update
     void Start()
     {
-       
-        mySpriterRenderer = GetComponent<SpriteRenderer>();
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -38,14 +37,14 @@ public class Tower : MonoBehaviour
 
     public void Select()
     {
-        mySpriterRenderer.enabled = !mySpriterRenderer.enabled;
+        mySpriteRenderer.enabled = !mySpriteRenderer.enabled;
     }
 
     public void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "Monster")
         {
-           monsters.Enqueue(other.GetComponent<Monster>());
+            monsters.Enqueue(other.GetComponent<Monster>());
         }
     }
 
@@ -59,6 +58,7 @@ public class Tower : MonoBehaviour
 
     private void Attack()
     {
+        
         if(!canAttack)
         {
             attackTimer += Time.deltaTime;
@@ -70,26 +70,24 @@ public class Tower : MonoBehaviour
             }
 
         }
+        
     
-    
-            if(target == null && monsters.Count>0)
+        if(target == null && monsters.Count > 0)
         {
             target = monsters.Dequeue();
         }
-            if (target != null && target.IsActive)
+        
+        if(target != null && target.IsActive)
         {
-            if(canAttack)
-          {
-              Shoot();
-              canAttack = false;
-          }
+            Shoot();
         }
+        
     }
 
     private void Shoot()
     {
         Projectile projectile = GameManager.Instance.Pool.GetObject(projectileType).GetComponent<Projectile>();
-        projectile.transform.position = transform.position;
+        //projectile.transform.position = transform.position;
     }
 
 

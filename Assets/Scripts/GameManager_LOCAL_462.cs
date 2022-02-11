@@ -279,17 +279,11 @@ public class GameManager : Singleton<GameManager>
 
     public void BuyTower()
     {
-<<<<<<< HEAD
         if(Currency >= ClickedBtn.Price)
         {
             Currency -= ClickedBtn.Price;
             Hover.Instance.Deactivate();
         }
-=======
-        Hover.Instance.Deactivate();
-      
-        
->>>>>>> develop
     }
     private void HandleEscape()
     {
