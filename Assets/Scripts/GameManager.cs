@@ -35,6 +35,11 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     private Text sellText;
 
+
+    private int health = 15;
+
+
+
     private List<Monster> activeMonsters = new List<Monster>();
 
 
@@ -127,7 +132,12 @@ public class GameManager : Singleton<GameManager>
  
         string type;
         Monster monster;
- 
+        
+
+        if(wave % 3 == 0)
+            {
+                health += 5;
+            }
  
         //Wave 1: Introductory Wave
         //**********
@@ -137,7 +147,8 @@ public class GameManager : Singleton<GameManager>
             type = "Monster1";
  
             monster = Pool.GetObject(type).GetComponent<Monster>();
-            monster.Spawn();
+            monster.Spawn(health);
+
             activeMonsters.Add(monster);
  
             yield return new WaitForSeconds(7f);
@@ -149,7 +160,7 @@ public class GameManager : Singleton<GameManager>
                 type = "Monster2";
  
                 monster = Pool.GetObject(type).GetComponent<Monster>();
-                monster.Spawn();
+                monster.Spawn(health);
                 activeMonsters.Add(monster);
  
                 yield return new WaitForSeconds(1f);
@@ -163,7 +174,7 @@ public class GameManager : Singleton<GameManager>
                 type = "Monster3";
  
                 monster = Pool.GetObject(type).GetComponent<Monster>();
-                monster.Spawn();
+                monster.Spawn(health);
                 activeMonsters.Add(monster);
  
                 yield return new WaitForSeconds(1f);
@@ -177,7 +188,7 @@ public class GameManager : Singleton<GameManager>
                 type = "Monster4";
  
                 monster = Pool.GetObject(type).GetComponent<Monster>();
-                monster.Spawn();
+                monster.Spawn(health);
                 activeMonsters.Add(monster);
  
                 yield return new WaitForSeconds(1f);
@@ -197,7 +208,7 @@ public class GameManager : Singleton<GameManager>
                 type = "Monster2";
  
                 monster = Pool.GetObject(type).GetComponent<Monster>();
-                monster.Spawn();
+                monster.Spawn(health);
                 activeMonsters.Add(monster);
  
                 yield return new WaitForSeconds(2.5f);
@@ -214,7 +225,7 @@ public class GameManager : Singleton<GameManager>
                 type = "Monster3";
  
                 monster = Pool.GetObject(type).GetComponent<Monster>();
-                monster.Spawn();
+                monster.Spawn(health);
                 activeMonsters.Add(monster);
  
                 yield return new WaitForSeconds(2.5f);
@@ -231,7 +242,7 @@ public class GameManager : Singleton<GameManager>
                 type = "Monster4";
  
                 monster = Pool.GetObject(type).GetComponent<Monster>();
-                monster.Spawn();
+                monster.Spawn(health);
                 activeMonsters.Add(monster);
  
                 yield return new WaitForSeconds(2.5f);
@@ -248,7 +259,7 @@ public class GameManager : Singleton<GameManager>
                 type = "Monster4";
  
                 monster = Pool.GetObject(type).GetComponent<Monster>();
-                monster.Spawn();
+                monster.Spawn(health);
                 activeMonsters.Add(monster);
  
                 yield return new WaitForSeconds(2.5f);
