@@ -19,11 +19,26 @@ public class Tower : MonoBehaviour
     private float attackCooldown;
     
     private SpriteRenderer mySpriteRenderer;
+    
+    
+    // monster stuff
     private Monster target; 
     private Queue<Monster> monsters = new Queue<Monster>();
 
+
+
+    //projectile speed
     [SerializeField]
     private float projectileSpeed;
+
+
+
+    //damaging monster
+    [SerializeField]
+    private int damage;
+
+
+
 
     public float ProjectileSpeed
     {
@@ -109,6 +124,19 @@ public class Tower : MonoBehaviour
         projectile.transform.position = transform.position;
         projectile.Initialize(this);
     }
+
+    public int Damage
+    {
+        get
+        {
+            return damage;
+        }
+
+        
+    }
+
+
+
 
 
 }

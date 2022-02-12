@@ -18,7 +18,6 @@ public class GameManager : Singleton<GameManager>
     private int hp;
     private bool gameOver = false;
     private int wave = 0;
-    //private float fixedDeltaTime;
 
     [SerializeField]
     private Text waveTxt;
@@ -36,8 +35,10 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     private Text sellText;
 
-    [SerializeField]
-    private GameObject optionsMenu;
+
+    private int health = 15;
+
+
 
     private List<Monster> activeMonsters = new List<Monster>();
 
@@ -98,7 +99,7 @@ public class GameManager : Singleton<GameManager>
     void Start()
     {
         Currency = 5;
-        Hp = 11;
+        Hp = 10;
     }
 
      void Update()
@@ -117,7 +118,7 @@ public class GameManager : Singleton<GameManager>
 
         SoundManager.Instance.PlaySFX("monsterspawn");
 
-        waveTxt.text = string.Format("Wave: {0}/5", wave);
+        waveTxt.text = string.Format("Wave: {0}/20", wave);
 
         //print("runnings12");
         StartCoroutine(SpawnWave());
@@ -131,7 +132,12 @@ public class GameManager : Singleton<GameManager>
  
         string type;
         Monster monster;
- 
+        
+
+        if(wave % 3 == 0)
+            {
+                health += 5;
+            }
  
         //Wave 1: Introductory Wave
         //**********
@@ -141,7 +147,8 @@ public class GameManager : Singleton<GameManager>
             type = "Monster1";
  
             monster = Pool.GetObject(type).GetComponent<Monster>();
-            monster.Spawn();
+            monster.Spawn(health);
+
             activeMonsters.Add(monster);
  
             yield return new WaitForSeconds(7f);
@@ -153,7 +160,7 @@ public class GameManager : Singleton<GameManager>
                 type = "Monster2";
  
                 monster = Pool.GetObject(type).GetComponent<Monster>();
-                monster.Spawn();
+                monster.Spawn(health);
                 activeMonsters.Add(monster);
  
                 yield return new WaitForSeconds(1f);
@@ -167,7 +174,7 @@ public class GameManager : Singleton<GameManager>
                 type = "Monster3";
  
                 monster = Pool.GetObject(type).GetComponent<Monster>();
-                monster.Spawn();
+                monster.Spawn(health);
                 activeMonsters.Add(monster);
  
                 yield return new WaitForSeconds(1f);
@@ -181,7 +188,7 @@ public class GameManager : Singleton<GameManager>
                 type = "Monster4";
  
                 monster = Pool.GetObject(type).GetComponent<Monster>();
-                monster.Spawn();
+                monster.Spawn(health);
                 activeMonsters.Add(monster);
  
                 yield return new WaitForSeconds(1f);
@@ -201,7 +208,7 @@ public class GameManager : Singleton<GameManager>
                 type = "Monster2";
  
                 monster = Pool.GetObject(type).GetComponent<Monster>();
-                monster.Spawn();
+                monster.Spawn(health);
                 activeMonsters.Add(monster);
  
                 yield return new WaitForSeconds(2.5f);
@@ -218,7 +225,7 @@ public class GameManager : Singleton<GameManager>
                 type = "Monster3";
  
                 monster = Pool.GetObject(type).GetComponent<Monster>();
-                monster.Spawn();
+                monster.Spawn(health);
                 activeMonsters.Add(monster);
  
                 yield return new WaitForSeconds(2.5f);
@@ -235,7 +242,7 @@ public class GameManager : Singleton<GameManager>
                 type = "Monster4";
  
                 monster = Pool.GetObject(type).GetComponent<Monster>();
-                monster.Spawn();
+                monster.Spawn(health);
                 activeMonsters.Add(monster);
  
                 yield return new WaitForSeconds(2.5f);
@@ -252,7 +259,7 @@ public class GameManager : Singleton<GameManager>
                 type = "Monster4";
  
                 monster = Pool.GetObject(type).GetComponent<Monster>();
-                monster.Spawn();
+                monster.Spawn(health);
                 activeMonsters.Add(monster);
  
                 yield return new WaitForSeconds(2.5f);
@@ -271,7 +278,6 @@ public class GameManager : Singleton<GameManager>
         if (!WaveActive)
         {
             waveBtn.SetActive(true);
-            SoundManager.Instance.PlaySFX("wave_win");
         }
     }
 
@@ -344,19 +350,5 @@ public class GameManager : Singleton<GameManager>
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
-
-//    public void PauseGame()
-//    {
-//        optionsMenu.SetActive(optionsMenu.activeSelf);
-//        if(!optionsMenu.activeSelf)
-//       {
-//            Time.timeScale = 1;
-//        }
-//
-//        else
-//        {
-//            Time.timeScale = 0;
-//       }
-//    }
 
 }

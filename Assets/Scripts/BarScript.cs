@@ -19,6 +19,7 @@ public class BarScript : MonoBehaviour
     {
         set
         {
+
             fillAmount = Map(value, 0, MaxValue, 0, 1);
         }
     }

@@ -48,7 +48,13 @@ public class Projectile : MonoBehaviour
     {
        if(other.tag== "Monster")
        {
-           GameManager.Instance.Pool.ReleaseObject(gameObject);
+           if(target.gameObject == other.gameObject)
+           {
+                target.TakeDamage(parent.Damage);
+                GameManager.Instance.Pool.ReleaseObject(gameObject);
+           }
+           Monster hitInfo = other.GetComponent<Monster>();
+           
        }
 
 

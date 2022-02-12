@@ -8,6 +8,14 @@ public class Monster : MonoBehaviour
     private float speed;
 
 
+
+    [SerializeField]
+    private Stat health;
+
+
+
+
+
     private Stack<Node> path;
 
     public Point GridPosition { get; set; }
@@ -20,11 +28,26 @@ public class Monster : MonoBehaviour
     }
 
 
+
+    private void Awake()
+    {
+       // myAnimator = GetComponent<Animator>();
+        health.Initialize();
+    }
+
+
+
+
+
     public bool IsActive {get ; set; }
 
-    public void Spawn()
+    public void Spawn(int health)
     {
         transform.position = LevelManager.Instance.Tiles[new Point(0,2)].GetComponent<TileScript>().WorldPosition;
+
+        this.health.MaxVal = health;
+        this.health.CurrentVal = this.health.MaxVal;
+
 
         IsActive = true;
 
@@ -73,8 +96,30 @@ public class Monster : MonoBehaviour
 
     private void Release()
     {
+        IsActive = false;
         GameManager.Instance.Pool.ReleaseObject(gameObject);
         GameManager.Instance.RemoveMonster(this);
+        
     }
     
+    public void TakeDamage(int damage)
+    {
+        if(IsActive)
+        {
+            health.CurrentVal -= damage;
+
+            if(health.CurrentVal <= 0)
+            {
+                GameManager.Instance.Currency +=2;
+                Release();
+
+                GameManager.Instance.RemoveMonster(this);
+
+                IsActive = false;
+                GetComponent<SpriteRenderer>().sortingOrder--;
+            }
+        }
+    }
+
+
 }
