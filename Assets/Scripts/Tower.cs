@@ -104,6 +104,7 @@ public class Tower : MonoBehaviour
 
     private void Shoot()
     {
+        SoundManager.Instance.PlaySFX("crossbow");
         Projectile projectile = GameManager.Instance.Pool.GetObject(projectileType).GetComponent<Projectile>();
         projectile.transform.position = transform.position;
         projectile.Initialize(this);

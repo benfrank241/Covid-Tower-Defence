@@ -18,6 +18,7 @@ public class GameManager : Singleton<GameManager>
     private int hp;
     private bool gameOver = false;
     private int wave = 0;
+    //private float fixedDeltaTime;
 
     [SerializeField]
     private Text waveTxt;
@@ -34,6 +35,9 @@ public class GameManager : Singleton<GameManager>
 
     [SerializeField]
     private Text sellText;
+
+    [SerializeField]
+    private GameObject optionsMenu;
 
     private List<Monster> activeMonsters = new List<Monster>();
 
@@ -94,7 +98,7 @@ public class GameManager : Singleton<GameManager>
     void Start()
     {
         Currency = 5;
-        Hp = 10;
+        Hp = 11;
     }
 
      void Update()
@@ -267,6 +271,7 @@ public class GameManager : Singleton<GameManager>
         if (!WaveActive)
         {
             waveBtn.SetActive(true);
+            SoundManager.Instance.PlaySFX("wave_win");
         }
     }
 
@@ -339,5 +344,19 @@ public class GameManager : Singleton<GameManager>
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
+
+//    public void PauseGame()
+//    {
+//        optionsMenu.SetActive(optionsMenu.activeSelf);
+//        if(!optionsMenu.activeSelf)
+//       {
+//            Time.timeScale = 1;
+//        }
+//
+//        else
+//        {
+//            Time.timeScale = 0;
+//       }
+//    }
 
 }

@@ -46,6 +46,7 @@ public class Monster : MonoBehaviour
 
                     Release();
 
+                    SoundManager.Instance.PlaySFX("oof");
                     GameManager.Instance.RemoveMonster(this);
 
                 }
