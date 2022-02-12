@@ -24,7 +24,7 @@ public class Monster : MonoBehaviour
 
     public void Spawn()
     {
-        transform.position = LevelManager.Instance.Tiles[new Point(1,1)].GetComponent<TileScript>().WorldPosition;
+        transform.position = LevelManager.Instance.Tiles[new Point(0,2)].GetComponent<TileScript>().WorldPosition;
 
         IsActive = true;
 
@@ -39,7 +39,7 @@ public class Monster : MonoBehaviour
 
             if(transform.position == destination)
             {
-                Vector3 endPath = LevelManager.Instance.Tiles[new Point(11,6)].GetComponent<TileScript>().WorldPosition;
+                Vector3 endPath = LevelManager.Instance.Tiles[new Point(13,4)].GetComponent<TileScript>().WorldPosition;
                 if(destination == endPath)
                 {
                     GameManager.Instance.Hp--;
