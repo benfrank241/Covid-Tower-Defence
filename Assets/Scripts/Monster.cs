@@ -29,7 +29,7 @@ public class Monster : MonoBehaviour
         IsActive = true;
 
         SetPath(LevelManager.Instance.Path);
-        SoundManager.Instance.PlaySFX("monsterspawn");
+        //SoundManager.Instance.PlaySFX("monsterspawn");
     }
 
     private void Move()

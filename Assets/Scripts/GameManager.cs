@@ -111,6 +111,7 @@ public class GameManager : Singleton<GameManager>
     {
         wave++;
 
+        SoundManager.Instance.PlaySFX("monsterspawn");
 
         waveTxt.text = string.Format("Wave: {0}/20", wave);
 
@@ -323,6 +324,8 @@ public class GameManager : Singleton<GameManager>
             selectedTower.GetComponentInParent<TileScript>().IsEmpty = true;
 
             Destroy(selectedTower.transform.parent.gameObject);
+
+            SoundManager.Instance.PlaySFX("sell");
 
             DeselectTower();
         }
