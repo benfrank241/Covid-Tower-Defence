@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1840244201}
   - component: {fileID: 1817607360195566754}
   - component: {fileID: 5503709608604989547}
+  - component: {fileID: 6860056346315703683}
   m_Layer: 2
   m_Name: Range
   m_TagString: Untagged
@@ -112,8 +113,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ad1dabffcfab1545a1e84c666425484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileType: CatopultBullet
+  projectileType: tank_bullet
   attackCooldown: 2
+  projectileSpeed: 7
+--- !u!114 &6860056346315703683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840244200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SpriteLibraryAsset: {fileID: 0}
 --- !u!1 &6085326301151204391
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,6 +139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1528846011968218573}
   - component: {fileID: 5548191656140690430}
+  - component: {fileID: 1815708339320503735}
   m_Layer: 0
   m_Name: barrack_close
   m_TagString: Untagged
@@ -197,3 +213,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1815708339320503735
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6085326301151204391}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e3b6dbd810f78e54a935140df32abcda, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
