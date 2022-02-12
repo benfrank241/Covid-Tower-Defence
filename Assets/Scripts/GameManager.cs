@@ -117,7 +117,7 @@ public class GameManager : Singleton<GameManager>
 
         SoundManager.Instance.PlaySFX("monsterspawn");
 
-        waveTxt.text = string.Format("Wave: {0}/20", wave);
+        waveTxt.text = string.Format("Wave: {0}/5", wave);
 
         //print("runnings12");
         StartCoroutine(SpawnWave());

@@ -1121,7 +1121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8439995472228807114, guid: 3456ce3b65d77bc4db2a1407069d636c, type: 3}
       propertyPath: m_Text
-      value: 'Wave: 0/20'
+      value: 'Wave: 0/5'
       objectReference: {fileID: 0}
     - target: {fileID: 8439995472228807114, guid: 3456ce3b65d77bc4db2a1407069d636c, type: 3}
       propertyPath: m_Color.b
@@ -2136,7 +2136,6 @@ MonoBehaviour:
   - {fileID: 8369834842848527810, guid: fe353b8da0a9f3b478e8afb347391ae6, type: 3}
   - {fileID: 1610671074106111530, guid: 17a697e9246eb6145b99e50482fc3590, type: 3}
   map: {fileID: 1564622379}
-  monsterPrefab: {fileID: 0}
 --- !u!4 &1026070279
 Transform:
   m_ObjectHideFlags: 0
