@@ -23,25 +23,36 @@ public static class PathAlgorithm
             CreateNodes();
         }
 
+        Stack<Node> st =  new Stack<Node>();
         Stack<Node> finalPath = new Stack<Node>();
 
         
-        finalPath.Push(nodes[new Point(11,6)]);
-        finalPath.Push(nodes[new Point(10,6)]);
-        finalPath.Push(nodes[new Point(9,6)]);
-        finalPath.Push(nodes[new Point(8,6)]);
-        finalPath.Push(nodes[new Point(8,5)]);
-        finalPath.Push(nodes[new Point(7,5)]);
-        finalPath.Push(nodes[new Point(6,5)]);
-        finalPath.Push(nodes[new Point(5,5)]);
-        finalPath.Push(nodes[new Point(5,4)]);
-        finalPath.Push(nodes[new Point(4,4)]);
-        finalPath.Push(nodes[new Point(4,3)]);
-        finalPath.Push(nodes[new Point(3,3)]);
-        finalPath.Push(nodes[new Point(3,2)]);
-        finalPath.Push(nodes[new Point(2,2)]);
-        finalPath.Push(nodes[new Point(2,1)]);
+        st.Push(nodes[new Point(0,2)]);
+        st.Push(nodes[new Point(1,2)]);
+        st.Push(nodes[new Point(2,2)]);
+        st.Push(nodes[new Point(2,3)]);
+        st.Push(nodes[new Point(3,3)]);
+        st.Push(nodes[new Point(4,3)]);
+        st.Push(nodes[new Point(4,4)]);
+        st.Push(nodes[new Point(5,4)]);
+        st.Push(nodes[new Point(5,5)]);
+        st.Push(nodes[new Point(6,5)]);
+        st.Push(nodes[new Point(7,5)]);
+        st.Push(nodes[new Point(7,4)]);
+        st.Push(nodes[new Point(8,4)]);
+        st.Push(nodes[new Point(8,3)]);
+        st.Push(nodes[new Point(8,2)]);
+        st.Push(nodes[new Point(9,2)]);
+        st.Push(nodes[new Point(10,2)]);
+        st.Push(nodes[new Point(10,3)]);
+        st.Push(nodes[new Point(10,4)]);
+        st.Push(nodes[new Point(11,4)]);
+        st.Push(nodes[new Point(12,4)]);
+        st.Push(nodes[new Point(13,4)]);
 
+        while (st.Count != 0) {
+            finalPath.Push(st.Pop());
+        }
 
         return finalPath;
     }
