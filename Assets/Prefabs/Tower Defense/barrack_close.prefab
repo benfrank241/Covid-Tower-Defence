@@ -116,7 +116,7 @@ MonoBehaviour:
   projectileType: tank_bullet
   attackCooldown: 2
   projectileSpeed: 7
-  damage: 5
+  damage: 10
 --- !u!114 &6860056346315703683
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Threading.Tasks;
+
 
 public class GameManager : Singleton<GameManager>
 {
@@ -41,6 +43,9 @@ public class GameManager : Singleton<GameManager>
 
 
     private List<Monster> activeMonsters = new List<Monster>();
+
+    private int numMonsters = 0;
+    private int threshold = 10;
 
 
     public bool WaveActive
@@ -98,7 +103,7 @@ public class GameManager : Singleton<GameManager>
     //Use this for initialization
     void Start()
     {
-        Currency = 5;
+        Currency = 25;
         Hp = 10;
     }
 
@@ -130,70 +135,54 @@ public class GameManager : Singleton<GameManager>
     {
         LevelManager.Instance.GeneratePath();
  
-        string type;
-        Monster monster;
-        
-
-        if(wave % 3 == 0)
-            {
-                health += 5;
-            }
  
         //Wave 1: Introductory Wave
         //**********
         if(wave==1)
         {
             //***
-            type = "Monster1";
+            for(int i = 0; i < 1; i++)
+            {
+                RandomizeMonster(1);
+                numMonsters++;
  
-            monster = Pool.GetObject(type).GetComponent<Monster>();
-            monster.Spawn(health);
-
-            activeMonsters.Add(monster);
+                yield return new WaitForSeconds(1.5f);
+            }
  
-            yield return new WaitForSeconds(7f);
+            yield return new WaitForSeconds(3);
             //***
  
             //***
             for(int i = 0; i < 2; i++)
             {
-                type = "Monster2";
+                RandomizeMonster(2);
+                numMonsters++;
  
-                monster = Pool.GetObject(type).GetComponent<Monster>();
-                monster.Spawn(health);
-                activeMonsters.Add(monster);
- 
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(1);
             }
-            yield return new WaitForSeconds(6f);
+            yield return new WaitForSeconds(3);
             //***
  
             //***
             for(int i = 0; i < 3; i++)
             {
-                type = "Monster3";
+                RandomizeMonster(3);
+                numMonsters++;
  
-                monster = Pool.GetObject(type).GetComponent<Monster>();
-                monster.Spawn(health);
-                activeMonsters.Add(monster);
- 
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(1.5f);
             }
-            yield return new WaitForSeconds(6f);
+            yield return new WaitForSeconds(3);
             //***
  
             //***
             for(int i = 0; i < 4; i++)
             {
-                type = "Monster4";
+                RandomizeMonster(4);
+                numMonsters++;
  
-                monster = Pool.GetObject(type).GetComponent<Monster>();
-                monster.Spawn(health);
-                activeMonsters.Add(monster);
- 
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(1);
             }
-            yield return new WaitForSeconds(6f);
+            yield return new WaitForSeconds(1);
             //***
         }
         //**********
@@ -203,15 +192,14 @@ public class GameManager : Singleton<GameManager>
         //**********
         if(wave==2)
         {
-            for(int i = 0; i < wave; i++)
+            health += 5;
+
+            for(int i = 0; i < 20; i++)
             {
-                type = "Monster2";
+                RandomizeMonster();
+                numMonsters++;
  
-                monster = Pool.GetObject(type).GetComponent<Monster>();
-                monster.Spawn(health);
-                activeMonsters.Add(monster);
- 
-                yield return new WaitForSeconds(2.5f);
+                yield return new WaitForSeconds(2);
             }
         }
         //**********
@@ -220,15 +208,16 @@ public class GameManager : Singleton<GameManager>
         //**********
         if(wave==3)
         {
-            for(int i = 0; i < wave; i++)
+
+            for(int i = 0; i < 20; i++)
             {
-                type = "Monster3";
+                RandomizeMonster(4);
+                numMonsters++;
+                yield return new WaitForSeconds(1);
+                RandomizeMonster();
+                numMonsters++;
  
-                monster = Pool.GetObject(type).GetComponent<Monster>();
-                monster.Spawn(health);
-                activeMonsters.Add(monster);
- 
-                yield return new WaitForSeconds(2.5f);
+                yield return new WaitForSeconds(1.5f);
             }
         }
         //**********
@@ -237,15 +226,28 @@ public class GameManager : Singleton<GameManager>
         //**********
         if(wave==4)
         {
-            for(int i = 0; i < wave; i++)
+            health += 10;
+
+            for(int i = 0; i < 4; i++)
             {
-                type = "Monster4";
+                RandomizeMonster(4);
  
-                monster = Pool.GetObject(type).GetComponent<Monster>();
-                monster.Spawn(health);
-                activeMonsters.Add(monster);
+                yield return new WaitForSeconds(1);
+            }
+
+            for(int i = 0; i < 20; i++)
+            {
+                RandomizeMonster();
+                yield return new WaitForSeconds(0.5f);
+                RandomizeMonster();
+                yield return new WaitForSeconds(2);
+            }
+
+            for(int i = 0; i < 4; i++)
+            {
+                RandomizeMonster(2);
  
-                yield return new WaitForSeconds(2.5f);
+                yield return new WaitForSeconds(1);
             }
         }
         //**********
@@ -254,19 +256,61 @@ public class GameManager : Singleton<GameManager>
         //**********
         if(wave==5)
         {
-            for(int i = 0; i < wave; i++)
+            health += 25;
+
+            for(int i = 0; i < 5; i++)
             {
-                type = "Monster4";
- 
-                monster = Pool.GetObject(type).GetComponent<Monster>();
-                monster.Spawn(health);
-                activeMonsters.Add(monster);
- 
-                yield return new WaitForSeconds(2.5f);
+                RandomizeMonster(2);
+                yield return new WaitForSeconds(0.5f);
+            }
+
+            for(int i = 0; i < 30; i++)
+            {
+                RandomizeMonster();
+                yield return new WaitForSeconds(1);
+                if(i%4 == 0)
+                {
+                    RandomizeMonster(2);
+                    yield return new WaitForSeconds(1);
+                }
+                RandomizeMonster();
+                yield return new WaitForSeconds(2);
             }
         }
         //**********
  
+    }
+    
+    private void RandomizeMonster(int monsterIndex = 0)
+    {
+        if(monsterIndex == 0)
+        {
+            monsterIndex = Random.Range(1,5);
+        }
+
+        string type = string.Empty;
+
+        switch(monsterIndex)
+        {
+            case 1:
+                type = "Monster1";
+                break;
+            case 2:
+                type = "Monster2";
+                break;
+            case 3:
+                type = "Monster3";
+                break;
+            case 4:
+                type = "Monster4";
+                break;
+        }
+
+        Monster monster = Pool.GetObject(type).GetComponent<Monster>();
+        monster.Spawn(health);
+        activeMonsters.Add(monster);
+
+        //yield return new WaitForSeconds(2.5f);
     }
 
 
@@ -274,16 +318,16 @@ public class GameManager : Singleton<GameManager>
     {
         activeMonsters.Remove(monster);
 
-
-        if (!WaveActive)
+        if (!WaveActive && numMonsters >= threshold)
         {
             waveBtn.SetActive(true);
+            threshold += 10;
         }
     }
 
     public void PickTower(TowerBtn towerBtn)
     {
-        if(!WaveActive && Currency >= towerBtn.Price){
+        if(Currency >= towerBtn.Price){
             this.ClickedBtn = towerBtn;
             Hover.Instance.Activate(towerBtn.Sprite);
         }

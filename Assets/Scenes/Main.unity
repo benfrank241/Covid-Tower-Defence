@@ -1340,7 +1340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 8031723482995422589, guid: 732202ef966d15b4fad56a991ca48fe7, type: 3}
   sprite: {fileID: 21300000, guid: 1d504a9813c54734e98cf1d559447445, type: 3}
-  price: 1
+  price: 5
   priceText: {fileID: 141869625}
 --- !u!114 &167069045
 MonoBehaviour:
@@ -2052,7 +2052,6 @@ MonoBehaviour:
   waveBtn: {fileID: 1754816933}
   upgradePanel: {fileID: 2137638682}
   sellText: {fileID: 5111576}
-  optionsMenu: {fileID: 1999186132}
   HPTxt: {fileID: 249849821}
 --- !u!1 &846430819
 GameObject:
@@ -2203,7 +2202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6368612487534998908, guid: 3c876a3e6f445764dade750384c1f407, type: 3}
       propertyPath: price
-      value: 2
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6368612487534998908, guid: 3c876a3e6f445764dade750384c1f407, type: 3}
       propertyPath: priceText
@@ -2691,7 +2690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 284732288127321738, guid: 617a060d060cca245bda5a16175ffe43, type: 3}
   sprite: {fileID: 21300000, guid: 8a30a2bb54fda3a49956f61a0896fa2e, type: 3}
-  price: 3
+  price: 25
   priceText: {fileID: 63132420}
 --- !u!114 &1582971064
 MonoBehaviour:
@@ -3136,11 +3135,6 @@ Transform:
   m_Father: {fileID: 378559721}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1999186132 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7060887369323539914, guid: 3456ce3b65d77bc4db2a1407069d636c, type: 3}
-  m_PrefabInstance: {fileID: 115682882}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2077180636
 GameObject:
   m_ObjectHideFlags: 0

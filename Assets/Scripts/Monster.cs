@@ -110,7 +110,7 @@ public class Monster : MonoBehaviour
 
             if(health.CurrentVal <= 0)
             {
-                GameManager.Instance.Currency +=2;
+                GameManager.Instance.Currency +=1;
                 Release();
 
                 GameManager.Instance.RemoveMonster(this);
