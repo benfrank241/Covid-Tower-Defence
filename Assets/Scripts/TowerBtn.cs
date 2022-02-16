@@ -71,15 +71,15 @@ public class TowerBtn : MonoBehaviour
         switch (type)
         {
             case "One":
-                tooltip = string.Format("<color=#ffa500ff><size=30><b>Archer</b></size></color><size=15>\nDamage: 2 \nRange: 2 \nSpeed: 2 per sec</size>");
+                tooltip = string.Format("<color=#ffa500ff><size=30><b>Archer</b></size></color><size=15>\nDamage: 10 \nRange: 4.5 \nSpeed: 2 per sec</size>");
                 break;
 
             case "Two":
-                tooltip = string.Format("<color=#00ffffff><size=30><b>Catapult</b></size></color><size=15>\nDamage: 1 \nRange: 1 \nSpeed: 1 per sec</size>");
+                tooltip = string.Format("<color=#00ffffff><size=30><b>Catapult</b></size></color><size=15>\nDamage: 5 \nRange: 3 \nSpeed: 3 per sec</size>");
                 break;
 
             case "Three":
-                tooltip = string.Format("<color=#00ff00ff><size=30><b>Sniper</b></size></color><size=15>\nDamage: 3 \nRange: 3 \nSpeed: 3 per sec</size>");
+                tooltip = string.Format("<color=#00ff00ff><size=30><b>Sniper</b></size></color><size=15>\nDamage: 20 \nRange: 5 \nSpeed: 2 per sec</size>");
                 break;
         }
         GameManager.Instance.SetTooltipText(tooltip);
