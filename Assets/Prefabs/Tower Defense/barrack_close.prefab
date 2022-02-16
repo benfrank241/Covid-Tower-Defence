@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ad1dabffcfab1545a1e84c666425484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileType: tank_bullet
+  projectileType: med
   attackCooldown: 2
   projectileSpeed: 7
   damage: 10
