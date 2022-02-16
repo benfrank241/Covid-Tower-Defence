@@ -78,7 +78,7 @@ public class GameManager : Singleton<GameManager>
         {
             this.currency = value;
             print(value);
-            this.currencyTxt.text = value.ToString() + "<color=lime>$</color>";
+            this.currencyTxt.text = value.ToString();
 
             OnCurrencyChanged();
         }
