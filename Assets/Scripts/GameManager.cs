@@ -6,9 +6,12 @@ using UnityEngine.SceneManagement;
 using System.Threading.Tasks;
 
 
+public delegate void CurrencyChanged();
+
 public class GameManager : Singleton<GameManager>
 {
-    
+
+    public event CurrencyChanged Changed;
     
     public ObjectPool Pool { get; set; }
     public TowerBtn ClickedBtn { get;set; }
@@ -35,9 +38,15 @@ public class GameManager : Singleton<GameManager>
     private GameObject upgradePanel;
 
     [SerializeField]
+    private GameObject statsPanel;
+
+    [SerializeField]
     private Text sellText;
 
     private bool IsSpawning = false;
+    [SerializeField]
+    private Text statTxt;
+
 
 
     private int health = 12;
@@ -70,6 +79,8 @@ public class GameManager : Singleton<GameManager>
             this.currency = value;
             print(value);
             this.currencyTxt.text = value.ToString() + "<color=lime>$</color>";
+
+            OnCurrencyChanged();
         }
     }
 
@@ -322,6 +333,10 @@ public class GameManager : Singleton<GameManager>
 
         if (!WaveActive && !IsSpawning)
         {
+            if (wave == 5)
+            {
+                WinGame();
+            }
             waveBtn.SetActive(true);
         }
     }
@@ -387,6 +402,14 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    public void OnCurrencyChanged()
+    {
+        if (Changed != null)
+        {
+            Changed();
+        }
+    }
+
     public void GameOver()
     {
         if (!gameOver)
@@ -396,4 +419,22 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    public void WinGame()
+    {
+        if (!gameOver)
+        {
+            gameOver = true;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        }
+    }
+
+    public void ShowStats()
+    {
+        statsPanel.SetActive(!statsPanel.activeSelf);
+    }
+
+    public void SetTooltipText(string txt)
+    {
+        statTxt.text = txt;
+    }
 }
