@@ -216,9 +216,9 @@ public class GameManager : Singleton<GameManager>
             for(int i = 0; i < 20; i++)
             {
                 RandomizeMonster(4);
-                yield return new WaitForSeconds(3);
+                yield return new WaitForSeconds(2.5f);
                 RandomizeMonster(); 
-                yield return new WaitForSeconds(3);
+                yield return new WaitForSeconds(2.5f);
             }
 
             IsSpawning = false;
@@ -229,7 +229,7 @@ public class GameManager : Singleton<GameManager>
         //**********
         if(wave==4)
         {
-            health += 5;
+            health += 10;
 
             for(int i = 0; i < 4; i++)
             {
@@ -259,7 +259,7 @@ public class GameManager : Singleton<GameManager>
         //**********
         if(wave==5)
         {
-            health += 10;
+            health += 15;
 
             for(int i = 0; i < 5; i++)
             {

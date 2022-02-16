@@ -22,7 +22,7 @@ public class ObjectPool : MonoBehaviour
 
     public GameObject GetObject(string type)
     {
-        
+        /*
         foreach (GameObject go in pooledObjects)
         {
             if(go.name == type && !go.activeInHierarchy)
@@ -31,7 +31,7 @@ public class ObjectPool : MonoBehaviour
                 return go;
             }
         }
-        
+        */
 
         
         for(int i = 0; i < monsterPrefab.Length; i++)
