@@ -766,12 +766,80 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3789378214042113724, guid: 3456ce3b65d77bc4db2a1407069d636c, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789378214042113724, guid: 3456ce3b65d77bc4db2a1407069d636c, type: 3}
       propertyPath: m_ReferenceResolution.x
       value: 960
       objectReference: {fileID: 0}
     - target: {fileID: 3789378214042113724, guid: 3456ce3b65d77bc4db2a1407069d636c, type: 3}
       propertyPath: m_ReferenceResolution.y
       value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789378214042113725, guid: 3456ce3b65d77bc4db2a1407069d636c, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
+    - target: {fileID: 3789378214042113725, guid: 3456ce3b65d77bc4db2a1407069d636c, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789378214042113725, guid: 3456ce3b65d77bc4db2a1407069d636c, type: 3}
+      propertyPath: m_PixelPerfect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789378214042113726, guid: 3456ce3b65d77bc4db2a1407069d636c, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789378214042113726, guid: 3456ce3b65d77bc4db2a1407069d636c, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789378214042113726, guid: 3456ce3b65d77bc4db2a1407069d636c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789378214042113726, guid: 3456ce3b65d77bc4db2a1407069d636c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789378214042113726, guid: 3456ce3b65d77bc4db2a1407069d636c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789378214042113726, guid: 3456ce3b65d77bc4db2a1407069d636c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789378214042113726, guid: 3456ce3b65d77bc4db2a1407069d636c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789378214042113726, guid: 3456ce3b65d77bc4db2a1407069d636c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789378214042113726, guid: 3456ce3b65d77bc4db2a1407069d636c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789378214042113726, guid: 3456ce3b65d77bc4db2a1407069d636c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789378214042113726, guid: 3456ce3b65d77bc4db2a1407069d636c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789378214042113726, guid: 3456ce3b65d77bc4db2a1407069d636c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789378214042113726, guid: 3456ce3b65d77bc4db2a1407069d636c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3789378214126533525, guid: 3456ce3b65d77bc4db2a1407069d636c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -811,7 +879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3789378214421383558, guid: 3456ce3b65d77bc4db2a1407069d636c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000038147
+      value: -0.000038146973
       objectReference: {fileID: 0}
     - target: {fileID: 3789378214421383559, guid: 3456ce3b65d77bc4db2a1407069d636c, type: 3}
       propertyPath: m_FontData.m_Font
@@ -1934,6 +2002,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1949,6 +2018,20 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ae42c8f78c60684aab6be6c18bd7a9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  colorblindShader: {fileID: 4800000, guid: b35b8f7ae8cf168488129d5f5f39ebf4, type: 3}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
