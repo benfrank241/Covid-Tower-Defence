@@ -508,6 +508,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -39.3121
       objectReference: {fileID: 0}
+    - target: {fileID: 927350422048451252, guid: 5c001345ed921bd48bcf550543298072, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d190bccadfb504344b4c373355fd88c5, type: 3}
     - target: {fileID: 984238497672574341, guid: 5c001345ed921bd48bcf550543298072, type: 3}
       propertyPath: m_Text
       value: <color=blue>X_X</color>
@@ -570,19 +574,20 @@ PrefabInstance:
     - target: {fileID: 1416497597951674378, guid: 5c001345ed921bd48bcf550543298072, type: 3}
       propertyPath: m_Text
       value: 'Use coins to purchase Towers and drag them into your desired position
+        (esc to cancel)
 
-        Purchase
-        upgrades by clicking on the tower
+        Purchase upgrades by clicking on the tower
 
-        Gain coins by defeating mosnters
+        Gain
+        coins by defeating viruses
 
-        Eliminate
-        the monsters before they reach the end
+        Eliminate the viruses before they reach
+        the end
 
-        dont let your lives drop
-        to 0
+        dont let your lives drop to 0
 
-        Beat level 20 to save humanity!
+        Beat wave 5 to save
+        humanity!
 
 '
       objectReference: {fileID: 0}
@@ -613,6 +618,14 @@ PrefabInstance:
     - target: {fileID: 1416497597951674378, guid: 5c001345ed921bd48bcf550543298072, type: 3}
       propertyPath: m_FontData.m_LineSpacing
       value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540389362404219334, guid: 5c001345ed921bd48bcf550543298072, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d600bf7524c3ce4ea489815eafa8848, type: 3}
+    - target: {fileID: 1545261915510020844, guid: 5c001345ed921bd48bcf550543298072, type: 3}
+      propertyPath: m_Name
+      value: TwrBtn
       objectReference: {fileID: 0}
     - target: {fileID: 2592785283406963482, guid: 5c001345ed921bd48bcf550543298072, type: 3}
       propertyPath: m_Text
@@ -780,7 +793,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4496563282294710565, guid: 5c001345ed921bd48bcf550543298072, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4496563282348868170, guid: 5c001345ed921bd48bcf550543298072, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1048,11 +1061,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4883675900519812264, guid: 5c001345ed921bd48bcf550543298072, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 215.3
+      value: 475
       objectReference: {fileID: 0}
     - target: {fileID: 4883675900519812264, guid: 5c001345ed921bd48bcf550543298072, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 482.2
+      value: 481
       objectReference: {fileID: 0}
     - target: {fileID: 4896351020677487441, guid: 5c001345ed921bd48bcf550543298072, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1119,12 +1132,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8129633779142323312, guid: 5c001345ed921bd48bcf550543298072, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 121.5116
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129633779142323312, guid: 5c001345ed921bd48bcf550543298072, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 615
       objectReference: {fileID: 0}
     - target: {fileID: 8129633779142323312, guid: 5c001345ed921bd48bcf550543298072, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 414
+      value: 424.7558
       objectReference: {fileID: 0}
     - target: {fileID: 8209998012280203320, guid: 5c001345ed921bd48bcf550543298072, type: 3}
       propertyPath: m_SizeDelta.x

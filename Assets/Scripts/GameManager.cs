@@ -159,7 +159,6 @@ public class GameManager : Singleton<GameManager>
  
                 yield return new WaitForSeconds(1.5f);
             }
- 
             yield return new WaitForSeconds(3);
             //***
  
@@ -194,6 +193,7 @@ public class GameManager : Singleton<GameManager>
                 yield return new WaitForSeconds(1);
             }
             yield return new WaitForSeconds(1);
+
             //***
         }
         //**********
@@ -287,9 +287,14 @@ public class GameManager : Singleton<GameManager>
                 RandomizeMonster();
                 yield return new WaitForSeconds(2);
             }
+            if (!WaveActive)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+            }
+
         }
         //**********
- 
+
     }
     
     private void RandomizeMonster(int monsterIndex = 0)
@@ -331,6 +336,10 @@ public class GameManager : Singleton<GameManager>
 
         if (!WaveActive && numMonsters >= threshold)
         {
+            if (wave == 5)
+            {
+                WinGame();
+            }
             waveBtn.SetActive(true);
             threshold += 10;
         }
@@ -411,6 +420,15 @@ public class GameManager : Singleton<GameManager>
         {
             gameOver = true;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+    }
+
+    public void WinGame()
+    {
+        if (!gameOver)
+        {
+            gameOver = true;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
         }
     }
 
