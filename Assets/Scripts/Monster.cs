@@ -116,7 +116,7 @@ public class Monster : MonoBehaviour
                 GameManager.Instance.RemoveMonster(this);
 
                 IsActive = false;
-                GetComponent<SpriteRenderer>().sortingOrder--;
+                //GetComponent<SpriteRenderer>().sortingOrder--;
             }
         }
     }

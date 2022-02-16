@@ -37,16 +37,14 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     private Text sellText;
 
+    private bool IsSpawning = false;
 
-    private int health = 15;
+
+    private int health = 12;
 
 
 
     private List<Monster> activeMonsters = new List<Monster>();
-
-    private int numMonsters = 0;
-    private int threshold = 10;
-
 
     public bool WaveActive
     {
@@ -125,7 +123,7 @@ public class GameManager : Singleton<GameManager>
 
         waveTxt.text = string.Format("Wave: {0}/5", wave);
 
-        //print("runnings12");
+        //print("running");
         StartCoroutine(SpawnWave());
 
         waveBtn.SetActive(false);
@@ -135,55 +133,48 @@ public class GameManager : Singleton<GameManager>
     {
         LevelManager.Instance.GeneratePath();
  
+        IsSpawning = true;
  
         //Wave 1: Introductory Wave
         //**********
         if(wave==1)
         {
             //***
-            for(int i = 0; i < 1; i++)
+            for(int i = 0; i < 4; i++)
             {
-                RandomizeMonster(1);
-                numMonsters++;
- 
+                RandomizeMonster(1); 
                 yield return new WaitForSeconds(1.5f);
             }
  
-            yield return new WaitForSeconds(3);
-            //***
- 
-            //***
-            for(int i = 0; i < 2; i++)
-            {
-                RandomizeMonster(2);
-                numMonsters++;
- 
-                yield return new WaitForSeconds(1);
-            }
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(5);
             //***
  
             //***
             for(int i = 0; i < 3; i++)
             {
-                RandomizeMonster(3);
-                numMonsters++;
+                RandomizeMonster(2);
+                yield return new WaitForSeconds(2);
+            }
+            yield return new WaitForSeconds(5);
+            //***
  
+            //***
+            for(int i = 0; i < 2; i++)
+            {
+                RandomizeMonster(3);
                 yield return new WaitForSeconds(1.5f);
             }
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(5);
             //***
  
             //***
-            for(int i = 0; i < 4; i++)
+            for(int i = 0; i < 1; i++)
             {
                 RandomizeMonster(4);
-                numMonsters++;
- 
-                yield return new WaitForSeconds(1);
+                //yield return new WaitForSeconds(1.5f);
             }
-            yield return new WaitForSeconds(1);
             //***
+            IsSpawning = false;
         }
         //**********
  
@@ -194,13 +185,15 @@ public class GameManager : Singleton<GameManager>
         {
             health += 5;
 
-            for(int i = 0; i < 20; i++)
+            for(int i = 0; i < 10; i++)
             {
                 RandomizeMonster();
-                numMonsters++;
- 
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(3);
+                RandomizeMonster(1);
+                yield return new WaitForSeconds(3);
             }
+
+            IsSpawning = false;
         }
         //**********
  
@@ -212,13 +205,12 @@ public class GameManager : Singleton<GameManager>
             for(int i = 0; i < 20; i++)
             {
                 RandomizeMonster(4);
-                numMonsters++;
-                yield return new WaitForSeconds(1);
-                RandomizeMonster();
-                numMonsters++;
- 
-                yield return new WaitForSeconds(1.5f);
+                yield return new WaitForSeconds(3);
+                RandomizeMonster(); 
+                yield return new WaitForSeconds(3);
             }
+
+            IsSpawning = false;
         }
         //**********
  
@@ -226,29 +218,29 @@ public class GameManager : Singleton<GameManager>
         //**********
         if(wave==4)
         {
-            health += 10;
+            health += 5;
 
             for(int i = 0; i < 4; i++)
             {
                 RandomizeMonster(4);
- 
                 yield return new WaitForSeconds(1);
             }
 
             for(int i = 0; i < 20; i++)
             {
                 RandomizeMonster();
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(1.5f);
                 RandomizeMonster();
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(2.5f);
             }
 
             for(int i = 0; i < 4; i++)
             {
                 RandomizeMonster(2);
- 
                 yield return new WaitForSeconds(1);
             }
+
+            IsSpawning = false;
         }
         //**********
  
@@ -256,7 +248,7 @@ public class GameManager : Singleton<GameManager>
         //**********
         if(wave==5)
         {
-            health += 25;
+            health += 10;
 
             for(int i = 0; i < 5; i++)
             {
@@ -276,9 +268,12 @@ public class GameManager : Singleton<GameManager>
                 RandomizeMonster();
                 yield return new WaitForSeconds(2);
             }
+
+            IsSpawning = false;
         }
         //**********
- 
+
+        //IsSpawning = false;
     }
     
     private void RandomizeMonster(int monsterIndex = 0)
@@ -288,29 +283,36 @@ public class GameManager : Singleton<GameManager>
             monsterIndex = Random.Range(1,5);
         }
 
+        Monster monster;
         string type = string.Empty;
 
         switch(monsterIndex)
         {
             case 1:
                 type = "Monster1";
+                monster = Pool.GetObject(type).GetComponent<Monster>();
+                monster.Spawn(health);
+                activeMonsters.Add(monster);
                 break;
             case 2:
                 type = "Monster2";
+                monster = Pool.GetObject(type).GetComponent<Monster>();
+                monster.Spawn(health+5);
+                activeMonsters.Add(monster);
                 break;
             case 3:
                 type = "Monster3";
+                monster = Pool.GetObject(type).GetComponent<Monster>();
+                monster.Spawn(health+10);
+                activeMonsters.Add(monster);
                 break;
             case 4:
                 type = "Monster4";
+                monster = Pool.GetObject(type).GetComponent<Monster>();
+                monster.Spawn(health+15);
+                activeMonsters.Add(monster);
                 break;
         }
-
-        Monster monster = Pool.GetObject(type).GetComponent<Monster>();
-        monster.Spawn(health);
-        activeMonsters.Add(monster);
-
-        //yield return new WaitForSeconds(2.5f);
     }
 
 
@@ -318,10 +320,9 @@ public class GameManager : Singleton<GameManager>
     {
         activeMonsters.Remove(monster);
 
-        if (!WaveActive && numMonsters >= threshold)
+        if (!WaveActive && !IsSpawning)
         {
             waveBtn.SetActive(true);
-            threshold += 10;
         }
     }
 
