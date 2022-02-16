@@ -44,8 +44,12 @@ public class GameManager : Singleton<GameManager>
     private Text sellText;
 
     private bool IsSpawning = false;
+
     [SerializeField]
     private Text statTxt;
+
+    [SerializeField]
+    private GameObject achievement;
 
 
 
@@ -159,9 +163,9 @@ public class GameManager : Singleton<GameManager>
  
             yield return new WaitForSeconds(5);
             //***
- 
+
             //***
-            for(int i = 0; i < 3; i++)
+            for (int i = 0; i < 3; i++)
             {
                 RandomizeMonster(2);
                 yield return new WaitForSeconds(2);
@@ -194,6 +198,7 @@ public class GameManager : Singleton<GameManager>
         //**********
         if(wave==2)
         {
+            Achievement();
             health += 5;
 
             for(int i = 0; i < 10; i++)
@@ -436,5 +441,14 @@ public class GameManager : Singleton<GameManager>
     public void SetTooltipText(string txt)
     {
         statTxt.text = txt;
+    }
+
+    public void Achievement()
+    {
+        Debug.Log("test");
+        if (hp == 10)
+        {
+            achievement.SetActive(!achievement.activeSelf);
+        }
     }
 }
