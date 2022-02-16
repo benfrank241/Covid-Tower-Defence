@@ -3111,7 +3111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 284732288127321738, guid: 617a060d060cca245bda5a16175ffe43, type: 3}
   sprite: {fileID: 21300000, guid: 8a30a2bb54fda3a49956f61a0896fa2e, type: 3}
-  price: 25
+  price: 30
   priceText: {fileID: 63132420}
 --- !u!114 &1582971064
 MonoBehaviour:
