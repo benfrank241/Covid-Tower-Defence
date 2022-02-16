@@ -76,6 +76,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5503709608604989547, guid: d68943e2082db93429a078a17cc4088b, type: 3}
+      propertyPath: projectileType
+      value: gmask
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503709608604989547, guid: d68943e2082db93429a078a17cc4088b, type: 3}
       propertyPath: projectileSpeed
       value: 3
       objectReference: {fileID: 0}
