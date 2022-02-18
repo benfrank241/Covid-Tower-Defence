@@ -201,13 +201,17 @@ public class GameManager : Singleton<GameManager>
             //Achievement();
             health += 5;
 
-            for(int i = 0; i < 10; i++)
+            RandomizeMonster();
+            yield return new WaitForSeconds(3);
+
+            for(int i = 0; i < 9; i++)
             {
                 RandomizeMonster();
                 yield return new WaitForSeconds(3);
                 RandomizeMonster(1);
                 yield return new WaitForSeconds(3);
             }
+            RandomizeMonster();
 
             IsSpawning = false;
         }
@@ -226,6 +230,7 @@ public class GameManager : Singleton<GameManager>
                 RandomizeMonster(); 
                 yield return new WaitForSeconds(3);
             }
+            RandomizeMonster();
 
             IsSpawning = false;
         }
@@ -253,8 +258,8 @@ public class GameManager : Singleton<GameManager>
 
             for(int i = 0; i < 4; i++)
             {
-                RandomizeMonster(2);
                 yield return new WaitForSeconds(1);
+                RandomizeMonster(2);
             }
 
             IsSpawning = false;
@@ -275,6 +280,7 @@ public class GameManager : Singleton<GameManager>
 
             for(int i = 0; i < 30; i++)
             {
+                yield return new WaitForSeconds(2);
                 RandomizeMonster();
                 yield return new WaitForSeconds(1);
                 if(i%4 == 0)
@@ -283,7 +289,6 @@ public class GameManager : Singleton<GameManager>
                     yield return new WaitForSeconds(1);
                 }
                 RandomizeMonster();
-                yield return new WaitForSeconds(2);
             }
 
             IsSpawning = false;
