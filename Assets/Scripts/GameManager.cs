@@ -198,7 +198,7 @@ public class GameManager : Singleton<GameManager>
         //**********
         if(wave==2)
         {
-            Achievement();
+            //Achievement();
             health += 5;
 
             for(int i = 0; i < 10; i++)
@@ -443,12 +443,17 @@ public class GameManager : Singleton<GameManager>
         statTxt.text = txt;
     }
 
-    public void Achievement()
+    public void Achievement()  //Probably have to make independent script
     {
         Debug.Log("test");
         if (hp == 10)
         {
             achievement.SetActive(!achievement.activeSelf);
         }
+    }
+
+    public int HpReturn()
+    {
+        return hp;
     }
 }
