@@ -56,6 +56,9 @@ public class GameManager : Singleton<GameManager>
     private GameObject fullAch;
 
     [SerializeField]
+    private GameObject oneAch;
+
+    [SerializeField]
     private GameObject advance;
 
     [SerializeField]
@@ -386,6 +389,11 @@ public class GameManager : Singleton<GameManager>
                     Achievement();
                 }
 
+                if (hp == 1)
+                {
+                    Achievement2();
+                }
+
                 WinGame();
             }
 
@@ -502,7 +510,12 @@ public class GameManager : Singleton<GameManager>
 
     public void Achievement()
     {
-            fullAch.SetActive(true);
+        fullAch.SetActive(true);
+    }
+
+    public void Achievement2()
+    {
+        oneAch.SetActive(true);
     }
 
     public IEnumerator Pause()
