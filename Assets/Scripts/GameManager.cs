@@ -468,6 +468,10 @@ public class GameManager : Singleton<GameManager>
     {
         if (!gameOver)
         {
+            if(Time.timeScale == 2)
+            {
+                Time.timeScale = 1;
+            }
             gameOver = true;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
@@ -477,6 +481,10 @@ public class GameManager : Singleton<GameManager>
     {
         if (!gameOver)
         {
+            if(Time.timeScale == 2)
+            {
+                Time.timeScale = 1;
+            }
             gameOver = true;
             advance.SetActive(true);
         }
@@ -508,5 +516,27 @@ public class GameManager : Singleton<GameManager>
         Fade.Instance.OnFadeTip2();
         Fade.Instance.OnFadeText2();
 
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void UnpauseGame()
+    {
+        Time.timeScale = 1;
+    }
+
+    public void FastForward()
+    {
+        if(Time.timeScale == 1)
+        {
+            Time.timeScale = 2;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
     }
 }

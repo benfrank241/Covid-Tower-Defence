@@ -62,7 +62,7 @@ public class Monster : MonoBehaviour
 
             if(transform.position == destination)
             {
-                Vector3 endPath = LevelManager.Instance.Tiles[new Point(13,4)].GetComponent<TileScript>().WorldPosition;
+                Vector3 endPath = LevelManager.Instance.Tiles[new Point(18,6)].GetComponent<TileScript>().WorldPosition;
                 if(destination == endPath)
                 {
                     GameManager.Instance.Hp--;

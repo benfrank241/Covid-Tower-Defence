@@ -114,9 +114,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileType: med
-  attackCooldown: 2
-  projectileSpeed: 7
-  damage: 10
+  attackCooldown: 1
+  projectileSpeed: 9
+  damage: 5
 --- !u!114 &6860056346315703683
 MonoBehaviour:
   m_ObjectHideFlags: 0
