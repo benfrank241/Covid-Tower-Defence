@@ -11,10 +11,16 @@ public class Fade : Singleton<Fade>
     public Image img;
 
     [SerializeField]
+    public GameObject Prompt;
+
+    [SerializeField]
     public Image Tip;
 
     [SerializeField]
     public Text TipText;
+
+    [SerializeField]
+    public GameObject Prompt2;
 
     [SerializeField]
     public Image Tip2;
@@ -23,10 +29,31 @@ public class Fade : Singleton<Fade>
     public Text TipText2;
 
     [SerializeField]
-    public GameObject Prompt;
+    public GameObject Prompt3;
 
     [SerializeField]
-    public GameObject Prompt1;
+    public Image Tip3;
+
+    [SerializeField]
+    public Text TipText3;
+
+    [SerializeField]
+    public GameObject Prompt4;
+
+    [SerializeField]
+    public Image Tip4;
+
+    [SerializeField]
+    public Text TipText4;
+
+    [SerializeField]
+    public GameObject Prompt5;
+
+    [SerializeField]
+    public Image Tip5;
+
+    [SerializeField]
+    public Text TipText5;
 
     public void OnButtonClick()
     {
@@ -56,6 +83,42 @@ public class Fade : Singleton<Fade>
     {
         // fades the image out when you click
         StartCoroutine(FadeText2(true));
+    }
+
+    public void OnFadeTip3()
+    {
+        // fades the image out when you click
+        StartCoroutine(FadeTip3(true));
+    }
+
+    public void OnFadeText3()
+    {
+        // fades the image out when you click
+        StartCoroutine(FadeText3(true));
+    }
+
+    public void OnFadeTip4()
+    {
+        // fades the image out when you click
+        StartCoroutine(FadeTip4(true));
+    }
+
+    public void OnFadeText4()
+    {
+        // fades the image out when you click
+        StartCoroutine(FadeText4(true));
+    }
+
+    public void OnFadeTip5()
+    {
+        // fades the image out when you click
+        StartCoroutine(FadeTip5(true));
+    }
+
+    public void OnFadeText5()
+    {
+        // fades the image out when you click
+        StartCoroutine(FadeText5(true));
     }
 
     IEnumerator FadeImage(bool fadeAway)
@@ -137,6 +200,88 @@ public class Fade : Singleton<Fade>
             TipText2.color = new Color(TipText2.color.r, TipText2.color.g, TipText2.color.b, TipText2.color.a - (Time.deltaTime));
             yield return null;
         }
-        Prompt1.SetActive(false);
+        Prompt2.SetActive(false);
     }
+
+    IEnumerator FadeTip3(bool fadeAway)
+    {
+        yield return new WaitForSeconds(3);
+        // fade from opaque to transparent
+        if (fadeAway)
+        {
+            // loop over 1 second backwards
+            for (float f = 1; f >= 0; f -= Time.deltaTime)
+            {
+                // set color with y as alpha
+                Tip3.color = new Color(1, 1, 1, f);
+                yield return null;
+            }
+        }
+    }
+    IEnumerator FadeText3(bool fadeAway)
+    {
+        yield return new WaitForSeconds(3);
+        TipText3.color = new Color(TipText3.color.r, TipText3.color.g, TipText3.color.b, 1);
+        while (TipText3.color.a > 0.0f)
+        {
+            TipText3.color = new Color(TipText3.color.r, TipText3.color.g, TipText3.color.b, TipText3.color.a - (Time.deltaTime));
+            yield return null;
+        }
+        Prompt3.SetActive(false);
+    }
+
+    IEnumerator FadeTip4(bool fadeAway)
+    {
+        yield return new WaitForSeconds(3);
+        // fade from opaque to transparent
+        if (fadeAway)
+        {
+            // loop over 1 second backwards
+            for (float o = 1; o >= 0; o -= Time.deltaTime)
+            {
+                // set color with y as alpha
+                Tip4.color = new Color(1, 1, 1, o);
+                yield return null;
+            }
+        }
+    }
+    IEnumerator FadeText4(bool fadeAway)
+    {
+        yield return new WaitForSeconds(3);
+        TipText4.color = new Color(TipText4.color.r, TipText4.color.g, TipText4.color.b, 1);
+        while (TipText4.color.a > 0.0f)
+        {
+            TipText4.color = new Color(TipText4.color.r, TipText4.color.g, TipText4.color.b, TipText4.color.a - (Time.deltaTime));
+            yield return null;
+        }
+        Prompt4.SetActive(false);
+    }
+
+    IEnumerator FadeTip5(bool fadeAway)
+    {
+        yield return new WaitForSeconds(3);
+        // fade from opaque to transparent
+        if (fadeAway)
+        {
+            // loop over 1 second backwards
+            for (float m = 1; m >= 0; m -= Time.deltaTime)
+            {
+                // set color with y as alpha
+                Tip5.color = new Color(1, 1, 1, m);
+                yield return null;
+            }
+        }
+    }
+    IEnumerator FadeText5(bool fadeAway)
+    {
+        yield return new WaitForSeconds(3);
+        TipText5.color = new Color(TipText5.color.r, TipText5.color.g, TipText5.color.b, 1);
+        while (TipText5.color.a > 0.0f)
+        {
+            TipText5.color = new Color(TipText5.color.r, TipText5.color.g, TipText5.color.b, TipText5.color.a - (Time.deltaTime));
+            yield return null;
+        }
+        Prompt5.SetActive(false);
+    }
+
 }

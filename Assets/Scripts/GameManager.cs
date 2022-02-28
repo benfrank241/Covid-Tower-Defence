@@ -53,6 +53,24 @@ public class GameManager : Singleton<GameManager>
     private Text promptText;
 
     [SerializeField]
+    private GameObject prompt3;
+
+    [SerializeField]
+    private Text promptText3;
+
+    [SerializeField]
+    private GameObject prompt4;
+
+    [SerializeField]
+    private Text promptText4;
+
+    [SerializeField]
+    private GameObject prompt5;
+
+    [SerializeField]
+    private Text promptText5;
+
+    [SerializeField]
     private GameObject fullAch;
 
     [SerializeField]
@@ -369,16 +387,19 @@ public class GameManager : Singleton<GameManager>
 
             if (wave == 2)
             {
+                Prompt3();
                 waveBtn.SetActive(true);
             }
 
             if (wave == 3)
             {
+                Prompt4();
                 waveBtn.SetActive(true);
             }
 
             if (wave == 4)
             {
+                Prompt5();
                 waveBtn.SetActive(true);
             }
 
@@ -529,6 +550,27 @@ public class GameManager : Singleton<GameManager>
         Fade.Instance.OnFadeTip2();
         Fade.Instance.OnFadeText2();
 
+    }
+
+    public void Prompt3()
+    {
+        prompt3.SetActive(true);
+        Fade.Instance.OnFadeTip3();
+        Fade.Instance.OnFadeText3();
+    }
+
+    public void Prompt4()
+    {
+        prompt4.SetActive(true);
+        Fade.Instance.OnFadeTip4();
+        Fade.Instance.OnFadeText4();
+    }
+
+    public void Prompt5()
+    {
+        prompt5.SetActive(true);
+        Fade.Instance.OnFadeTip5();
+        Fade.Instance.OnFadeText5();
     }
 
     public void PauseGame()
