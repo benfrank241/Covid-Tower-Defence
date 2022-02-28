@@ -1,26 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Achievements : MonoBehaviour
+public class Achievements : Singleton <Achievements>
 {
-    // Start is called before the first frame update
-    void Start()
+
+    [SerializeField]
+    public GameObject full;
+
+    public bool fullHealth = true;
+
+    private void Awake()
     {
-        Check();
+        if (fullHealth)
+        {
+            full.SetActive(true);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void Select ()
     {
-        
+            fullHealth = false;
     }
-    
-    public void Check()
-    {
-        //if (GameManager.HpReturn() == 10)
-        //{
-        //    Debug.Log("TEST");
-       // }
-    }
+
+    //public void FullHealth()
+    //{
+    //    full.SetActive(true);
+    //}
+
+
 }

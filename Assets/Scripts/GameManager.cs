@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Threading.Tasks;
 
-
 public delegate void CurrencyChanged();
 
 public class GameManager : Singleton<GameManager>
@@ -30,7 +29,6 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     private Text currencyTxt;
 
-
     [SerializeField]
     private GameObject waveBtn;
 
@@ -49,9 +47,19 @@ public class GameManager : Singleton<GameManager>
     private Text statTxt;
 
     [SerializeField]
-    private GameObject achievement;
+    private GameObject prompt1;
 
+    [SerializeField]
+    private Text promptText;
 
+    [SerializeField]
+    private GameObject fullAch;
+
+    [SerializeField]
+    private GameObject advance;
+
+    [SerializeField]
+    private GameObject esc;
 
     private int health = 12;
 
@@ -116,7 +124,7 @@ public class GameManager : Singleton<GameManager>
     //Use this for initialization
     void Start()
     {
-        Currency = 25;
+        Currency = 105;
         Hp = 10;
     }
 
@@ -128,6 +136,9 @@ public class GameManager : Singleton<GameManager>
     private void Awake()
     {
         Pool = GetComponent<ObjectPool>();
+        Fade.Instance.OnButtonClick();
+        Fade.Instance.OnFadeTip();
+        Fade.Instance.OnFadeText();
     }
 
     public void StartWave()
@@ -155,13 +166,13 @@ public class GameManager : Singleton<GameManager>
         if(wave==1)
         {
             //***
-            for(int i = 0; i < 4; i++)
+            for (int i = 0; i < 4; i++)
             {
                 RandomizeMonster(1); 
                 yield return new WaitForSeconds(1.5f);
             }
- 
-            yield return new WaitForSeconds(5);
+
+            yield return new WaitForSeconds(5); //
             //***
 
             //***
@@ -172,22 +183,22 @@ public class GameManager : Singleton<GameManager>
             }
             yield return new WaitForSeconds(5);
             //***
- 
+
             //***
-            for(int i = 0; i < 2; i++)
+            for (int i = 0; i < 2; i++)
             {
                 RandomizeMonster(3);
                 yield return new WaitForSeconds(1.5f);
             }
             yield return new WaitForSeconds(5);
             //***
- 
+
             //***
-            for(int i = 0; i < 1; i++)
+            for (int i = 0; i < 1; i++)
             {
                 RandomizeMonster(4);
-                //yield return new WaitForSeconds(1.5f);
-            }
+                yield return new WaitForSeconds(1.5f);
+            } 
             //***
             IsSpawning = false;
         }
@@ -198,13 +209,12 @@ public class GameManager : Singleton<GameManager>
         //**********
         if(wave==2)
         {
-            //Achievement();
             health += 5;
 
             RandomizeMonster();
             yield return new WaitForSeconds(3);
 
-            for(int i = 0; i < 9; i++)
+            for (int i = 0; i < 9; i++)
             {
                 RandomizeMonster();
                 yield return new WaitForSeconds(3);
@@ -221,13 +231,18 @@ public class GameManager : Singleton<GameManager>
         //**********
         if(wave==3)
         {
-            //health += 5;
+            for (int i = 0; i < 1; i++)
+            {
+                RandomizeMonster(1);
+                yield return new WaitForSeconds(1.5f);
+            }
+            health += 5;
 
-            for(int i = 0; i < 20; i++)
+            for (int i = 0; i < 20; i++)
             {
                 RandomizeMonster(4);
                 yield return new WaitForSeconds(3);
-                RandomizeMonster(); 
+                RandomizeMonster();
                 yield return new WaitForSeconds(3);
             }
             RandomizeMonster();
@@ -242,13 +257,13 @@ public class GameManager : Singleton<GameManager>
         {
             health += 5;
 
-            for(int i = 0; i < 4; i++)
+            for (int i = 0; i < 4; i++)
             {
                 RandomizeMonster(4);
                 yield return new WaitForSeconds(1);
             }
 
-            for(int i = 0; i < 20; i++)
+            for (int i = 0; i < 20; i++)
             {
                 RandomizeMonster();
                 yield return new WaitForSeconds(1.5f);
@@ -256,7 +271,7 @@ public class GameManager : Singleton<GameManager>
                 yield return new WaitForSeconds(2.5f);
             }
 
-            for(int i = 0; i < 4; i++)
+            for (int i = 0; i < 4; i++)
             {
                 yield return new WaitForSeconds(1);
                 RandomizeMonster(2);
@@ -278,12 +293,12 @@ public class GameManager : Singleton<GameManager>
                 yield return new WaitForSeconds(0.5f);
             }
 
-            for(int i = 0; i < 30; i++)
+            for (int i = 0; i < 30; i++)
             {
                 yield return new WaitForSeconds(2);
                 RandomizeMonster();
                 yield return new WaitForSeconds(1);
-                if(i%4 == 0)
+                if (i % 4 == 0)
                 {
                     RandomizeMonster(2);
                     yield return new WaitForSeconds(1);
@@ -295,7 +310,6 @@ public class GameManager : Singleton<GameManager>
         }
         //**********
 
-        //IsSpawning = false;
     }
     
     private void RandomizeMonster(int monsterIndex = 0)
@@ -344,11 +358,37 @@ public class GameManager : Singleton<GameManager>
 
         if (!WaveActive && !IsSpawning)
         {
+            if (wave == 1)
+            {
+                Prompt();
+                waveBtn.SetActive(true);
+            }
+
+            if (wave == 2)
+            {
+                waveBtn.SetActive(true);
+            }
+
+            if (wave == 3)
+            {
+                waveBtn.SetActive(true);
+            }
+
+            if (wave == 4)
+            {
+                waveBtn.SetActive(true);
+            }
+
             if (wave == 5)
             {
+                if (hp == 10)
+                {
+                    Achievement();
+                }
+
                 WinGame();
             }
-            waveBtn.SetActive(true);
+
         }
     }
 
@@ -357,6 +397,7 @@ public class GameManager : Singleton<GameManager>
         if(Currency >= towerBtn.Price){
             this.ClickedBtn = towerBtn;
             Hover.Instance.Activate(towerBtn.Sprite);
+            esc.SetActive(true);
         }
     }
 
@@ -366,6 +407,7 @@ public class GameManager : Singleton<GameManager>
         {
             Currency -= ClickedBtn.Price;
             Hover.Instance.Deactivate();
+            esc.SetActive(false);
         }
     }
     private void HandleEscape()
@@ -373,6 +415,7 @@ public class GameManager : Singleton<GameManager>
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Hover.Instance.Deactivate();
+            esc.SetActive(false);
         }
     }
     public void SelectTower(Tower tower)
@@ -435,7 +478,7 @@ public class GameManager : Singleton<GameManager>
         if (!gameOver)
         {
             gameOver = true;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+            advance.SetActive(true);
         }
     }
 
@@ -449,17 +492,21 @@ public class GameManager : Singleton<GameManager>
         statTxt.text = txt;
     }
 
-    public void Achievement()  //Probably have to make independent script
+    public void Achievement()
     {
-        Debug.Log("test");
-        if (hp == 10)
-        {
-            achievement.SetActive(!achievement.activeSelf);
-        }
+            fullAch.SetActive(true);
     }
 
-    public int HpReturn()
+    public IEnumerator Pause()
     {
-        return hp;
+        yield return new WaitForSeconds(10);
+    }
+
+    public void Prompt()
+    {
+        prompt1.SetActive(true);
+        Fade.Instance.OnFadeTip2();
+        Fade.Instance.OnFadeText2();
+
     }
 }
