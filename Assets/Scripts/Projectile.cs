@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour
 
     private Tower parent;
 
-    
+    private Element elementType;
 
 
     // Start is called before the first frame update
@@ -48,7 +48,27 @@ public class Projectile : MonoBehaviour
     {
         this.target = parent.Target;
         this.parent = parent;
+        this.elementType = parent.ElementType;
     }
+
+
+     private void ApplyDebuff()
+    {
+        if (target.ElementType != elementType)
+        {
+            float roll = Random.Range(0,100);
+
+            if(roll <= parent.Proc)
+            {
+                target.AddDebuff(parent.GetDebuff());
+            }
+        }
+    }
+
+
+
+
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -56,10 +76,12 @@ public class Projectile : MonoBehaviour
        {
            if(target.gameObject == other.gameObject)
            {
-                target.TakeDamage(parent.Damage);
+                target.TakeDamage(parent.Damage,elementType);
                 GameManager.Instance.Pool.ReleaseObject(gameObject);
            }
            Monster hitInfo = other.GetComponent<Monster>();
+
+           ApplyDebuff();
            
        }
 
@@ -68,7 +90,7 @@ public class Projectile : MonoBehaviour
     }
 
 
-
+   
 
 
 

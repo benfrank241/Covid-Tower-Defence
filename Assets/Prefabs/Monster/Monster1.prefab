@@ -223,6 +223,7 @@ MonoBehaviour:
     bar: {fileID: 2095234830494500311}
     maxVal: 0
     currentVal: 0
+  elementType: 4
 --- !u!61 &9134069532330656952
 BoxCollider2D:
   m_ObjectHideFlags: 0

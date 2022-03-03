@@ -13,7 +13,11 @@ public class Monster : MonoBehaviour
     private Stat health;
 
 
+    [SerializeField]
+    private Element elementType;
 
+
+    private int invulnerability = 1;
 
 
     private Stack<Node> path;
@@ -25,15 +29,28 @@ public class Monster : MonoBehaviour
     private void Update()
     {
         Move();
+        HandleDebuffs();
     }
-
-
 
     private void Awake()
     {
        // myAnimator = GetComponent<Animator>();
         health.Initialize();
+        MaxSpeed = speed;
     }
+
+
+
+
+
+    private List<Debuff> debuffs = new List<Debuff>();
+
+    private List<Debuff> debuffsToRemove = new List<Debuff>();
+
+    private List<Debuff> newDebuffs = new List<Debuff>();
+
+    public float MaxSpeed {get; set; }
+
 
 
 
@@ -102,10 +119,15 @@ public class Monster : MonoBehaviour
         
     }
     
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage, Element dmgSource)
     {
         if(IsActive)
         {
+            if(dmgSource == elementType)
+            {
+                damage = damage/invulnerability;
+
+            }
             health.CurrentVal -= damage;
 
             if(health.CurrentVal <= 0)
@@ -120,6 +142,72 @@ public class Monster : MonoBehaviour
             }
         }
     }
+
+   
+
+    
+
+    public Element ElementType
+    {
+        get
+        {
+             return elementType;
+        }
+    }
+
+
+     public void AddDebuff(Debuff debuff)
+    {
+        if (!debuffs.Exists(x => x.GetType() == debuff.GetType()))
+        {
+            newDebuffs.Add(debuff);
+        }
+    }
+
+
+    public void RemoveDebuff(Debuff debuff)
+    {
+        debuffsToRemove.Add(debuff);
+    }
+
+    private void HandleDebuffs()
+    {
+       
+            if(newDebuffs.Count > 0)
+            {
+                debuffs.AddRange(newDebuffs);
+
+                newDebuffs.Clear();
+            }
+
+
+            foreach (Debuff debuff in debuffsToRemove)
+            {
+                debuffs.Remove(debuff);
+            }
+
+            debuffsToRemove.Clear();
+
+            foreach(Debuff debuff in debuffs)
+            {
+                debuff.Update();
+            }
+    }
+
+    public float Speed 
+    {
+        get
+        {
+            return speed;
+        }
+
+        set
+        {
+            this.speed = value;
+        }
+    }
+
+
 
 
 }

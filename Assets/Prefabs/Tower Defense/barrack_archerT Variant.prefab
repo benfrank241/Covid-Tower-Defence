@@ -17,11 +17,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1840244202, guid: d68943e2082db93429a078a17cc4088b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.64
+      value: 0.78
       objectReference: {fileID: 0}
     - target: {fileID: 1840244202, guid: d68943e2082db93429a078a17cc4088b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.86
+      value: -0.56
       objectReference: {fileID: 0}
     - target: {fileID: 1528846011968218573, guid: d68943e2082db93429a078a17cc4088b, type: 3}
       propertyPath: m_RootOrder
@@ -29,11 +29,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1528846011968218573, guid: d68943e2082db93429a078a17cc4088b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.73
+      value: -2.8
       objectReference: {fileID: 0}
     - target: {fileID: 1528846011968218573, guid: d68943e2082db93429a078a17cc4088b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.61
+      value: -1.41
       objectReference: {fileID: 0}
     - target: {fileID: 1528846011968218573, guid: d68943e2082db93429a078a17cc4088b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -67,6 +67,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3804952877253083137, guid: d68943e2082db93429a078a17cc4088b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5503709608604989547, guid: d68943e2082db93429a078a17cc4088b, type: 3}
       propertyPath: damage
       value: 20
@@ -82,10 +86,11 @@ PrefabInstance:
     - target: {fileID: 5548191656140690430, guid: d68943e2082db93429a078a17cc4088b, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 6d600bf7524c3ce4ea489815eafa8848, type: 3}
+      objectReference: {fileID: 21300000, guid: aecfc03da09b4724e889d423c1a15e10, type: 3}
     - target: {fileID: 6085326301151204391, guid: d68943e2082db93429a078a17cc4088b, type: 3}
       propertyPath: m_Name
       value: barrack_archerT Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3804952877253083137, guid: d68943e2082db93429a078a17cc4088b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d68943e2082db93429a078a17cc4088b, type: 3}
