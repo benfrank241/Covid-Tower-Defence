@@ -524,6 +524,12 @@ public class GameManager : Singleton<GameManager>
         statsPanel.SetActive(!statsPanel.activeSelf);
     }
 
+    public void ShowSelectedTowerStats()
+    {
+        statsPanel.SetActive(!statsPanel.activeSelf);
+        UpdateUpgradeTip();
+    }
+
     public void SetTooltipText(string txt)
     {
         statTxt.text = txt;
@@ -592,6 +598,14 @@ public class GameManager : Singleton<GameManager>
         else
         {
             Time.timeScale = 1;
+        }
+    }
+    
+    public void UpdateUpgradeTip()
+    {
+        if (selectedTower != null)
+        {
+            SetTooltipText(selectedTower.GetStats());
         }
     }
 }

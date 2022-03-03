@@ -21,6 +21,8 @@ public  abstract class Tower : MonoBehaviour
 
     [SerializeField]
     private float attackCooldown;
+
+    public TowerUpgrade[] Upgrades { get; protected set; }
     
     private SpriteRenderer mySpriteRenderer;
     
@@ -28,6 +30,8 @@ public  abstract class Tower : MonoBehaviour
     // monster stuff
     private Monster target; 
     private Queue<Monster> monsters = new Queue<Monster>();
+
+    public int Level { get; protected set; }
 
 
 
@@ -88,11 +92,25 @@ public  abstract class Tower : MonoBehaviour
         get{ return target;}
     }
 
+    public TowerUpgrade NextUpgrade
+    {
+        get
+        {
+            if (Upgrades.Length > Level - 1)
+            {
+                return Upgrades[Level - 1];
+            }
+
+            return null;
+        }
+    }
+
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         mySpriteRenderer = GetComponent<SpriteRenderer>();
+        Level = 1;
     }
 
     // Update is called once per frame
@@ -157,6 +175,15 @@ public  abstract class Tower : MonoBehaviour
             
         }
         
+    }
+
+    public virtual string GetStats()
+    {
+        if (NextUpgrade != null)
+        {
+            return string.Format("\nLevel: {0} \nDamage: {1} <color=#00ff00ff> +{4} </color> \nProc: {2}% <color=#00ff00ff>+{5}%</color> \nDebuff: {3}sec <color=#00ff00ff>+{6}</color>", Level, damage, proc, debuffDuration, NextUpgrade.Damage, NextUpgrade.ProcChance, NextUpgrade.DebuffDuration);
+        }
+        return string.Format("\nLevel: {0} \nDamage: {1} \nProc: {2}% \nDebuff: {3}sec", Level, damage, proc, DebuffDuration);
     }
 
     private void Shoot()
