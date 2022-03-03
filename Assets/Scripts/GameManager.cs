@@ -328,7 +328,7 @@ public class GameManager : Singleton<GameManager>
         switch(monsterIndex)
         {
             case 1:
-                type = "Monster1";
+                type = "Monster1_Colored";
                 monster = Pool.GetObject(type).GetComponent<Monster>();
                 monster.Spawn(health);
                 activeMonsters.Add(monster);
@@ -340,13 +340,13 @@ public class GameManager : Singleton<GameManager>
                 activeMonsters.Add(monster);
                 break;
             case 3:
-                type = "Monster3";
+                type = "Monster3_Colored";
                 monster = Pool.GetObject(type).GetComponent<Monster>();
                 monster.Spawn(health+10);
                 activeMonsters.Add(monster);
                 break;
             case 4:
-                type = "Monster4";
+                type = "Monster4_Colored";
                 monster = Pool.GetObject(type).GetComponent<Monster>();
                 monster.Spawn(health+15);
                 activeMonsters.Add(monster);
