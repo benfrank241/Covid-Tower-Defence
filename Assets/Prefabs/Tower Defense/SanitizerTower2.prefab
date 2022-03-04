@@ -209,10 +209,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a33cdb3f5f0d5924697edc51681951c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileType: potion
+  projectileType: bubble
   attackCooldown: 2
-  projectileSpeed: 7
-  damage: 6
+  projectileSpeed: 4
+  damage: 3
   debuffDuration: 4
   proc: 100
-  slowingFactor: 70
+  SlowingFactor: 0

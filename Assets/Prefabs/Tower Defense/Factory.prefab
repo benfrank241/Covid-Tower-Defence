@@ -126,13 +126,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a33cdb3f5f0d5924697edc51681951c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileType: gmask
+  projectileType: wmask
   attackCooldown: 2
   projectileSpeed: 3
   damage: 2
   debuffDuration: 0
   proc: 0
-  slowingFactor: 0
+  SlowingFactor: 0
 --- !u!1 &7371945598519254028
 GameObject:
   m_ObjectHideFlags: 0
