@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2965142584823982360}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -226.0202, y: -460.11682, z: 0}
+  m_LocalPosition: {x: -659, y: -610, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 217323871938378412}
@@ -111,7 +111,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3644195259267608801}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 737.3902, y: 662.3268, z: 0}
+  m_LocalPosition: {x: 0.45, y: -0.52, z: 0}
   m_LocalScale: {x: 4.5, y: 4.5, z: 1}
   m_Children: []
   m_Father: {fileID: 3451215985988658833}
@@ -210,9 +210,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileType: med
-  attackCooldown: 1
-  projectileSpeed: 1
+  attackCooldown: 3
+  projectileSpeed: 7
   damage: 1
-  debuffDuration: 1
+  debuffDuration: 3
   proc: 100
-  slowingFactor: 90
+  SlowingFactor: 70
