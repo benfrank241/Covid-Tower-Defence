@@ -186,6 +186,7 @@ public class GameManager : Singleton<GameManager>
         //**********
         if(wave==1)
         {
+            RandomizeMonster(5); 
             //***
             for (int i = 0; i < 4; i++)
             {
@@ -327,6 +328,9 @@ public class GameManager : Singleton<GameManager>
                 RandomizeMonster();
             }
 
+            yield return new WaitForSeconds(5);
+            RandomizeMonster(5);
+
             IsSpawning = false;
         }
         //**********
@@ -367,6 +371,12 @@ public class GameManager : Singleton<GameManager>
                 type = "Monster4_Colored";
                 monster = Pool.GetObject(type).GetComponent<Monster>();
                 monster.Spawn(health+15);
+                activeMonsters.Add(monster);
+                break;
+            case 5:
+                type = "Monster_Boss";
+                monster = Pool.GetObject(type).GetComponent<Monster>();
+                monster.Spawn(health+100);
                 activeMonsters.Add(monster);
                 break;
         }
