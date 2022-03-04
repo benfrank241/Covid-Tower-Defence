@@ -215,4 +215,4 @@ MonoBehaviour:
   damage: 1
   debuffDuration: 3
   proc: 100
-  SlowingFactor: 70
+  slowingFactor: 70
