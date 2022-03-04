@@ -1,21 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//hospital
 public class FreezeTower : Tower
 {
 	[SerializeField]   
-	private float SlowingFactor;
+	private float slowingFactor;
 
-	//public float SlowingFactor
-	//{
-		//get 
-		//{
-			//return slowingFactor;
-	//	}
-	//}
+    public float SlowingFactor
+    {
+        get
+        {
+            return slowingFactor;
+        }
+    }
 
-	private void Start()
+    private void Start()
 	{
 		ElementType = Element.FROST;
 
@@ -40,5 +40,11 @@ public class FreezeTower : Tower
 
 		//Returns the current upgrade
 		return string.Format("<color=#00ffffff>{0}</color>{1} \nSlowing factor: {2}%", "<size=20><b>Frost</b></size>", base.GetStats(), SlowingFactor);
+	}
+
+	public override void Upgrade()
+	{
+		this.slowingFactor += NextUpgrade.SlowingFactor;
+		base.Upgrade();
 	}
 }

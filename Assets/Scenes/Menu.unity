@@ -1567,15 +1567,15 @@ PrefabInstance:
         Purchase upgrades by clicking on the tower
 
         Gain
-        coins by defeating viruses
+        BioCoins by defeating viruses
 
-        Eliminate the viruses before they reach
-        the end
+        Eliminate the viruses before they
+        reach the end
 
         dont let your lives drop to 0
 
-        Beat wave 5 to save
-        humanity!
+        Beat wave 5
+        to save humanity!
 
 '
       objectReference: {fileID: 0}
@@ -2089,7 +2089,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6200927687792943205, guid: 5c001345ed921bd48bcf550543298072, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 368
+      value: 383
       objectReference: {fileID: 0}
     - target: {fileID: 6200927687792943205, guid: 5c001345ed921bd48bcf550543298072, type: 3}
       propertyPath: m_AnchoredPosition.y

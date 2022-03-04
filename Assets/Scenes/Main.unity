@@ -4022,7 +4022,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 368, y: 347}
+  m_AnchoredPosition: {x: 388, y: 345}
   m_SizeDelta: {x: 65, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &786950180
@@ -4327,6 +4327,7 @@ MonoBehaviour:
   oneAch: {fileID: 1189062788}
   advance: {fileID: 1548951919}
   esc: {fileID: 836128402}
+  upgradePrice: {fileID: 1221469887}
   HPTxt: {fileID: 249849821}
 --- !u!1 &827091625
 GameObject:
@@ -5925,6 +5926,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1200109146}
   m_CullTransparentMesh: 1
+--- !u!114 &1221469887 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3084641271482925149, guid: 3651563f4e8fd2249a26d025bbbc701e, type: 3}
+  m_PrefabInstance: {fileID: 900434014529309747}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1222588022
 GameObject:
   m_ObjectHideFlags: 0
@@ -7430,7 +7442,7 @@ MonoBehaviour:
 
     Purchase upgrades by clicking on the tower
 
-    Gain coins
+    Gain biocoins
     by defeating viruses
 
     Eliminate the viruses before they reach the end
@@ -8121,6 +8133,34 @@ PrefabInstance:
     - target: {fileID: 4884930248288469633, guid: 3651563f4e8fd2249a26d025bbbc701e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4899970982924679369, guid: 3651563f4e8fd2249a26d025bbbc701e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4899970982924679369, guid: 3651563f4e8fd2249a26d025bbbc701e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4899970982924679369, guid: 3651563f4e8fd2249a26d025bbbc701e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 806819309}
+    - target: {fileID: 4899970982924679369, guid: 3651563f4e8fd2249a26d025bbbc701e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4899970982924679369, guid: 3651563f4e8fd2249a26d025bbbc701e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpgradeTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 4899970982924679369, guid: 3651563f4e8fd2249a26d025bbbc701e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4899970982924679369, guid: 3651563f4e8fd2249a26d025bbbc701e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5494713849950289988, guid: 3651563f4e8fd2249a26d025bbbc701e, type: 3}
       propertyPath: m_IsActive

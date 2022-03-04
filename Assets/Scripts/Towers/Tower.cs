@@ -127,6 +127,7 @@ public  abstract class Tower : MonoBehaviour
              mySpriteRenderer = GetComponent<SpriteRenderer>();
         }
         mySpriteRenderer.enabled = !mySpriteRenderer.enabled;
+        GameManager.Instance.UpdateUpgradeTip();
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -192,6 +193,17 @@ public  abstract class Tower : MonoBehaviour
         Projectile projectile = GameManager.Instance.Pool.GetObject(projectileType).GetComponent<Projectile>();
         projectile.transform.position = transform.position;
         projectile.Initialize(this);
+    }
+
+    public virtual void Upgrade()
+    {
+        GameManager.Instance.Currency -= NextUpgrade.Price;
+        Price += NextUpgrade.Price;
+        this.damage += NextUpgrade.Damage;
+        this.proc += NextUpgrade.ProcChance;
+        this.debuffDuration += NextUpgrade.DebuffDuration;
+        Level++;
+        GameManager.Instance.UpdateUpgradeTip();
     }
 
     public int Damage
