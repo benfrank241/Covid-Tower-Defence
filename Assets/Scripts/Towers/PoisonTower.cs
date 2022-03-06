@@ -5,16 +5,6 @@ using UnityEngine;
 public class PoisonTower : Tower
 {
 
-	private float attackCooldown;
-
-
-	//public float AttackCooldown
-	//{
-	//	get
-	//	{
-	//		return attackCooldown;
-	//	}
-	//}
 	private void Start()
 	{
 		ElementType = Element.POISON;
@@ -25,7 +15,7 @@ public class PoisonTower : Tower
 			new TowerUpgrade (5, 2, 1),
 		};
 	}
-
+	
 	public override Debuff GetDebuff()
 	{
 		return new PoisonDebuff(Target);
