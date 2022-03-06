@@ -182,10 +182,11 @@ public  abstract class Tower : MonoBehaviour
     {
         if (NextUpgrade != null)
         {
-            return string.Format("\nLevel: {0} \nDamage: {1} <color=#00ff00ff> +{4} </color> \nProc: {2}% <color=#00ff00ff>+{5}%</color> \nDebuff: {3}sec <color=#00ff00ff>+{6}</color>", Level, damage, proc, debuffDuration, NextUpgrade.Damage, NextUpgrade.ProcChance, NextUpgrade.DebuffDuration);
+            return string.Format("\nLevel: {0} \nDamage: {1} <color=#00ff00ff> +{4} </color> \nProc: {2}% <color=#00ff00ff>+{5}%</color> \nDebuff: {3}sec <color=#00ff00ff>+{6}</color> \nRate of Fire: {7}sec <color=#00ff00ff>+{8}</color>", Level, damage, proc, debuffDuration, NextUpgrade.Damage, NextUpgrade.ProcChance, NextUpgrade.DebuffDuration, attackCooldown, NextUpgrade.AttackCooldown);
         }
-        return string.Format("\nLevel: {0} \nDamage: {1} \nProc: {2}% \nDebuff: {3}sec", Level, damage, proc, DebuffDuration);
+        return string.Format("\nLevel: {0} \nDamage: {1} \nProc: {2}% \nDebuff: {3}sec \nRate of Fire: {4}", Level, damage, proc, DebuffDuration, attackCooldown);
     }
+
 
     private void Shoot()
     {
@@ -202,6 +203,7 @@ public  abstract class Tower : MonoBehaviour
         this.damage += NextUpgrade.Damage;
         this.proc += NextUpgrade.ProcChance;
         this.debuffDuration += NextUpgrade.DebuffDuration;
+        this.attackCooldown -= NextUpgrade.AttackCooldown;
         Level++;
         GameManager.Instance.UpdateUpgradeTip();
     }
@@ -211,10 +213,17 @@ public  abstract class Tower : MonoBehaviour
         get
         {
             return damage;
-        }
-
-        
+        }  
     }
+
+    public float AttackCooldown
+    {
+        get
+        {
+            return attackCooldown;
+        }
+    }
+
 
     public abstract Debuff GetDebuff();
 
@@ -231,5 +240,6 @@ public  abstract class Tower : MonoBehaviour
             this.proc = value;
         }
     }
+
 
 }

@@ -19,6 +19,8 @@ public class TowerUpgrade
 
     public int SpecialDamage { get; private set; }
 
+    public int AttackCooldown { get; private set; }
+
     public TowerUpgrade(int price, int damage, float debuffDuration, float procChance)
     {
         this.Damage = damage;
@@ -47,5 +49,17 @@ public class TowerUpgrade
         this.Price = price;
     }
 
+    public TowerUpgrade(int price, int damage, int attackCooldown)
+    {
+        this.Damage = damage;
+        this.Price = price;
+        this.AttackCooldown = attackCooldown;
+    }
+
+    public TowerUpgrade(int price, int damage)
+    {
+        this.Damage = damage;
+        this.Price = price;
+    }
 
 }
