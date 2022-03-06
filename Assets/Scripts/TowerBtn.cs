@@ -75,19 +75,19 @@ public class TowerBtn : MonoBehaviour
                 break;
 
             case "Factory":
-                tooltip = string.Format("<color=#00ffffff><size=30><b>Factory</b></size></color><size=15>\nDamage: 5 \nRange: 3 \nSpeed: 3 per sec</size>");
+                tooltip = string.Format("<color=#00ff00ff><size=30><b>Factory</b></size></color><size=15>\nDamage: 5 \nRange: 3 \nSpeed: 3 per sec</size>");
                 break;
 
-            case "Syringe":
-                tooltip = string.Format("<color=#00ff00ff><size=30><b>Syringe</b></size></color><size=15>\nDamage: 20 \nRange: 5 \nSpeed: 2 per sec</size>");
+            case "Vaccine":
+                tooltip = string.Format("<color=#ffff00><size=30><b>Vaccine</b></size></color><size=15>\nDamage: 20 \nRange: 5 \nSpeed: 2 per sec</size>");
                 break;
 
-            case "Meddoc":
-                tooltip = string.Format("<color=#00ff00ff><size=30><b>Meddoc</b></size></color><size=15>\nDamage: x \nRange: x \nSpeed: x per sec</size>");
+            case "Witch Doctor":
+                tooltip = string.Format("<color=#ff0000><size=30><b>Witch Doctor</b></size></color><size=15>\nDamage: x \nRange: x \nSpeed: x per sec</size>");
                 break;
 
             case "Sanitizer":
-                tooltip = string.Format("<color=#00ff00ff><size=30><b>Sanitizer</b></size></color><size=15>\nDamage: x \nRange: x \nSpeed: x per sec</size>");
+                tooltip = string.Format("<color=#00ffffff><size=30><b>Sanitizer</b></size></color><size=15>\nDamage: x \nRange: x \nSpeed: x per sec</size>");
                 break;
         }
         GameManager.Instance.SetTooltipText(tooltip);

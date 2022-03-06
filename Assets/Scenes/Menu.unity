@@ -1499,7 +1499,7 @@ PrefabInstance:
     - target: {fileID: 927350422048451252, guid: 5c001345ed921bd48bcf550543298072, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d190bccadfb504344b4c373355fd88c5, type: 3}
+      objectReference: {fileID: 21300000, guid: d2ee1c6cbe575344e8d638bf80345739, type: 3}
     - target: {fileID: 984238497672574341, guid: 5c001345ed921bd48bcf550543298072, type: 3}
       propertyPath: m_Text
       value: <color=blue>X_X</color>
@@ -1610,7 +1610,7 @@ PrefabInstance:
     - target: {fileID: 1540389362404219334, guid: 5c001345ed921bd48bcf550543298072, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 6d600bf7524c3ce4ea489815eafa8848, type: 3}
+      objectReference: {fileID: 21300000, guid: 674de26ef0a0cc6408186a65d3ae02b9, type: 3}
     - target: {fileID: 1545261915510020844, guid: 5c001345ed921bd48bcf550543298072, type: 3}
       propertyPath: m_Name
       value: TwrBtn
@@ -2041,19 +2041,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4883675900519812264, guid: 5c001345ed921bd48bcf550543298072, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 85.5015
+      value: 100.6563
       objectReference: {fileID: 0}
     - target: {fileID: 4883675900519812264, guid: 5c001345ed921bd48bcf550543298072, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 84.1834
+      value: 99.3382
       objectReference: {fileID: 0}
     - target: {fileID: 4883675900519812264, guid: 5c001345ed921bd48bcf550543298072, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 475
+      value: 482.57736
       objectReference: {fileID: 0}
     - target: {fileID: 4883675900519812264, guid: 5c001345ed921bd48bcf550543298072, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 481
+      value: 478
       objectReference: {fileID: 0}
     - target: {fileID: 4896351020677487441, guid: 5c001345ed921bd48bcf550543298072, type: 3}
       propertyPath: m_SizeDelta.x
