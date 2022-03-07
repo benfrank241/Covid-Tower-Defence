@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileType: Syringe
-  attackCooldown: 5
+  attackCooldown: 3
   projectileSpeed: 9
   damage: 20
   debuffDuration: 0

@@ -4436,7 +4436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 6983486368459555996, guid: f3a4a8b4125bc964587ee4902f35e580, type: 3}
   sprite: {fileID: 21300000, guid: 43cd8535eac9b734fa764fa4767ccfc7, type: 3}
-  price: 15
+  price: 10
   priceText: {fileID: 362523550}
 --- !u!114 &827091629
 MonoBehaviour:
@@ -5139,7 +5139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 6974467468317578530, guid: 61f7fb43a27716344804cbfe4ead6ff1, type: 3}
   sprite: {fileID: 21300000, guid: 00184aadca26ca548a4f306f59a1bf6d, type: 3}
-  price: 15
+  price: 20
   priceText: {fileID: 2084625632}
 --- !u!114 &1098682344
 MonoBehaviour:
@@ -5632,7 +5632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6368612487534998908, guid: 3c876a3e6f445764dade750384c1f407, type: 3}
       propertyPath: price
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6368612487534998908, guid: 3c876a3e6f445764dade750384c1f407, type: 3}
       propertyPath: sprite
@@ -7514,6 +7514,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1407108321566910196, guid: b47930e6dc8bd03498d6442c46463b43, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4418975617256505984, guid: b47930e6dc8bd03498d6442c46463b43, type: 3}
       propertyPath: m_RootOrder
       value: 9

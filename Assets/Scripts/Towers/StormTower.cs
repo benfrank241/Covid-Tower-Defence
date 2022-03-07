@@ -13,8 +13,8 @@ public class StormTower : Tower
 
 		Upgrades = new TowerUpgrade[]
 		{
-			new TowerUpgrade (2, 2, 1, 2),
-			new TowerUpgrade (5, 3, 1, 2),
+			new TowerUpgrade (7, 6, 2, 10),
+			new TowerUpgrade (15, 10, 1, 10),
 		};
 	}
 

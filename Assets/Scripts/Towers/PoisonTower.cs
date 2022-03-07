@@ -12,7 +12,7 @@ public class PoisonTower : Tower
 		Upgrades = new TowerUpgrade[]
 		{
 			new TowerUpgrade (2, 1, 1),
-			new TowerUpgrade (5, 2, 1),
+			new TowerUpgrade (5, 2, 0),
 		};
 	}
 	

@@ -11,8 +11,8 @@ public class NormalTower : Tower
 
 		Upgrades = new TowerUpgrade[]
 		{
-			new TowerUpgrade (2, 2),
-			new TowerUpgrade (5, 3),
+			new TowerUpgrade (14, 11),
+			new TowerUpgrade (22, 20),
 		};
 	}
 

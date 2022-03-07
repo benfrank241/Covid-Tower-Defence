@@ -21,8 +21,8 @@ public class FreezeTower : Tower
 
 		Upgrades = new TowerUpgrade[]
 		{
-			new TowerUpgrade (2, 1, 1, 2, 10),
-			new TowerUpgrade (2, 1, 1, 2, 20),
+			new TowerUpgrade (9, 2, 1, 10, -15),
+			new TowerUpgrade (18, 4, 2, 15, -30),
 		};
 	}
 

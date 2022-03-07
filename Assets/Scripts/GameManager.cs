@@ -148,7 +148,7 @@ public class GameManager : Singleton<GameManager>
     //Use this for initialization
     void Start()
     {
-        Currency = 105;
+        Currency = 25;
         Hp = 10;
     }
 
@@ -189,7 +189,7 @@ public class GameManager : Singleton<GameManager>
         //**********
         if(wave==1)
         {
-            RandomizeMonster(5); 
+           // RandomizeMonster(5); 
             //***
             for (int i = 0; i < 4; i++)
             {

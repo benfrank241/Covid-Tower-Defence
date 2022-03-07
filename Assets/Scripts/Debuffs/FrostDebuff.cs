@@ -22,7 +22,7 @@ public class FrostDebuff : Debuff
 			if(!applied)
 			{
 				applied = true;
-				target.Speed = (target.MaxSpeed*(100-slowingFactor))/100;
+				target.Speed = (target.MaxSpeed*(slowingFactor))/100;
 			}
 		}	
 		base.Update();

@@ -211,9 +211,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileType: potion
   attackCooldown: 2
-  projectileSpeed: 6
-  damage: 2
-  debuffDuration: 3
+  projectileSpeed: 7
+  damage: 6
+  debuffDuration: 8
   proc: 70
-  tickTime: 3
-  tickDamage: 2
+  tickTime: 2
+  tickDamage: 1

@@ -38,8 +38,8 @@ public class BurnTower : Tower
 
 		Upgrades = new TowerUpgrade[]
 		{
-			new TowerUpgrade (2, 2, 0.5f, 5,-0.1f,1),
-			new TowerUpgrade (5, 3, 0.5f, 5,-0.1f,1),
+			new TowerUpgrade (7, 1, 1.5f, 5,-0.5f,2),
+			new TowerUpgrade (14, 2, 1.5f, 8,0f,3),
 		};
 	}
 

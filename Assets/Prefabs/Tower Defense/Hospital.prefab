@@ -210,9 +210,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileType: med
-  attackCooldown: 3
-  projectileSpeed: 7
-  damage: 1
-  debuffDuration: 3
-  proc: 100
-  slowingFactor: 70
+  attackCooldown: 2
+  projectileSpeed: 8
+  damage: 8
+  debuffDuration: 2
+  proc: 70
+  slowingFactor: 77
