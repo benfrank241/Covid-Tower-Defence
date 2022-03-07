@@ -214,4 +214,4 @@ MonoBehaviour:
   projectileSpeed: 9
   damage: 10
   debuffDuration: 3
-  proc: 60
+  proc: 55

@@ -87,7 +87,7 @@ public class TowerBtn : MonoBehaviour
                 break;
 
             case "Sanitizer":
-                tooltip = string.Format("<color=#00ffffff><size=30><b>Sanitizer</b></size></color><size=22>\nDamage 10 \nProc: 60% \nDebuff: 3sec \nRate of Fire: 4sec  \n<color=#00ffffff>Debuff: Freeze</color></size>");
+                tooltip = string.Format("<color=#00ffffff><size=30><b>Sanitizer</b></size></color><size=22>\nDamage 10 \nProc: 55% \nDebuff: 3sec \nRate of Fire: 3sec  \n<color=#00ffffff>Debuff: Freeze</color></size>");
                 break;
         }
         GameManager.Instance.SetTooltipText(tooltip);
