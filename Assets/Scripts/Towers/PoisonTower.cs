@@ -25,8 +25,8 @@ public class PoisonTower : Tower
 	{
 		if (NextUpgrade != null) //If the next is avaliable
 		{
-			return string.Format("<color=#ffa500ff>{0}</color>{1}", "<size=20><b>Factory</b></size> ", base.GetStats());
+			return string.Format("<color=#00ff00ff>{0}</color>{1}", "<size=20><b>Factory</b></size> ", base.GetStats());
 		}
-		return string.Format("<color=#ffa500ff>{0}</color>{1}", "<size=20><b>Factory</b></size> ", base.GetStats());
+		return string.Format("<color=#00ff00ff>{0}</color>{1}", "<size=20><b>Factory</b></size> ", base.GetStats());
 	}
 }

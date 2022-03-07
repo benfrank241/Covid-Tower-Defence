@@ -23,7 +23,7 @@ public class NormalTower : Tower
 
     public override string GetStats()
 	{
-		return string.Format("<color=#00ff00ff>{0}</color>{1}", "<Size=30><b>Vaccine</b></Size>", base.GetStats());
+		return string.Format("<color=#ffff00>{0}</color>{1}", "<Size=30><b>Vaccine</b></Size>", base.GetStats());
 	}
 
 

@@ -35,11 +35,11 @@ public class FreezeTower : Tower
 	{
 		if (NextUpgrade != null)  //If the next is avaliable
 		{
-			return string.Format("<color=#00ffffff>{0}</color>{1} \nSlowing factor: {2}% <color=#00ff00ff>+{3}</color>", "<size=20><b>Frost</b></size>", base.GetStats(), SlowingFactor, NextUpgrade.SlowingFactor);
+			return string.Format("<color=#ffa500ff>{0}</color>{1} \nSlowing factor: {2}% <color=#00ff00ff>{3}%</color>", "<size=20><b>Hospital</b></size>", base.GetStats(), SlowingFactor, NextUpgrade.SlowingFactor);
 		}
 
 		//Returns the current upgrade
-		return string.Format("<color=#00ffffff>{0}</color>{1} \nSlowing factor: {2}%", "<size=20><b>Frost</b></size>", base.GetStats(), SlowingFactor);
+		return string.Format("<color=#ffa500ff>{0}</color>{1} \nSlowing factor: {2}%", "<size=20><b>Hospital</b></size>", base.GetStats(), SlowingFactor);
 	}
 
 	public override void Upgrade()

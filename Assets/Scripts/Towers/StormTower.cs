@@ -25,6 +25,6 @@ public class StormTower : Tower
 
 	public override string GetStats()
     {
-		return string.Format("<color=#00ff00ff>{0}</color>{1}", "<Size=30><b>Syringe</b></Size>", base.GetStats());
+		return string.Format("<color=#00ffffff>{0}</color>{1}", "<Size=30><b>Sanitizer</b></Size>", base.GetStats());
     }
 }

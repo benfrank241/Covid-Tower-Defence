@@ -71,23 +71,23 @@ public class TowerBtn : MonoBehaviour
         switch (type)
         {
             case "Hospital":
-                tooltip = string.Format("<color=#ffa500ff><size=30><b>Hospital</b></size></color><size=15>\nDamage: 10 \nRange: 4.5 \nSpeed: 2 per sec \n<color=#00ffffff>Debuff: Slow</color></size>");
+                tooltip = string.Format("<color=#ffa500ff><size=30><b>Hospital</b></size></color><size=22>\nDamage 8 \nProc: 70% \nDebuff: 2sec \nRate of Fire: 2sec \nSlowing factor: 77%\n<color=#ffff00>Debuff: Slow</color></size>");
                 break;
 
             case "Factory":
-                tooltip = string.Format("<color=#00ff00ff><size=30><b>Factory</b></size></color><size=15>\nDamage: 5 \nRange: 3 \nSpeed: 3 per sec</size>");
+                tooltip = string.Format("<color=#00ff00ff><size=30><b>Factory</b></size></color><size=22>\nDamage: 3 \nDebuff: None \nRate of Fire: 2sec</size>");
                 break;
 
             case "Vaccine":
-                tooltip = string.Format("<color=#ffff00><size=30><b>Vaccine</b></size></color><size=15>\nDamage: 20 \nRange: 5 \nSpeed: 2 per sec </size>");
+                tooltip = string.Format("<color=#ffff00><size=30><b>Vaccine</b></size></color><size=22>\nDamage 20 \nDebuff: None \nRate of Fire: 3sec </size>");
                 break;
 
             case "Witch Doctor":
-                tooltip = string.Format("<color=#ff0000><size=30><b>Witch Doctor</b></size></color><size=15>\nDamage: x \nRange: x \nSpeed: x per sec \n<color=#ff0000>Debuff: Burn</color></size>");
+                tooltip = string.Format("<color=#ffa500ff><size=30><b>Witch Doctor</b></size></color><size=22>\nDamage 6 \nProc: 70% \nDebuff: 8sec \nRate of Fire: 2sec \nTick time: 2 \nTick Damage: 1 \n<color=#ff0000>Debuff: Burn</color></size>");
                 break;
 
             case "Sanitizer":
-                tooltip = string.Format("<color=#00ffffff><size=30><b>Sanitizer</b></size></color><size=15>\nDamage: x \nRange: x \nSpeed: x per sec \n<color=#00ffffff>Debuff: Freeze</color></size>");
+                tooltip = string.Format("<color=#00ffffff><size=30><b>Sanitizer</b></size></color><size=22>\nDamage 10 \nProc: 60% \nDebuff: 3sec \nRate of Fire: 4sec  \n<color=#00ffffff>Debuff: Freeze</color></size>");
                 break;
         }
         GameManager.Instance.SetTooltipText(tooltip);

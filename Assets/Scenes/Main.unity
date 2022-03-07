@@ -1774,7 +1774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7181092003620687532, guid: 3456ce3b65d77bc4db2a1407069d636c, type: 3}
       propertyPath: m_Text
-      value: Boss scene upcoming...
+      value: Final boss incoming...
       objectReference: {fileID: 0}
     - target: {fileID: 7181092003620687532, guid: 3456ce3b65d77bc4db2a1407069d636c, type: 3}
       propertyPath: m_FontData.m_FontSize

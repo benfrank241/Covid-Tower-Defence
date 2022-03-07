@@ -148,7 +148,7 @@ public class GameManager : Singleton<GameManager>
     //Use this for initialization
     void Start()
     {
-        Currency = 25;
+        Currency = 125;
         Hp = 10;
     }
 
@@ -379,7 +379,7 @@ public class GameManager : Singleton<GameManager>
             case 5:
                 type = "Monster_Boss";
                 monster = Pool.GetObject(type).GetComponent<Monster>();
-                monster.Spawn(health+100);
+                monster.Spawn(health+400);
                 activeMonsters.Add(monster);
                 break;
         }
