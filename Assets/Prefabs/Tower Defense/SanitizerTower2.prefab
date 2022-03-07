@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileType: bubble
-  attackCooldown: 4
+  attackCooldown: 3
   projectileSpeed: 9
   damage: 10
   debuffDuration: 3
